@@ -13,13 +13,15 @@
 
 ### 安装
 
+执行以下命令安装依赖
+
 ```bash
 pnpm i # 如果你没装过 pnpm, 可以先运行: npm install -g pnpm
 ```
 
 ### 开发
 
-只需要执行以下命令就可以在 http://localhost:5173 中看到
+执行以下命令启动项目，浏览器访问 http://localhost:5173 看到页面
 
 ```bash
 pnpm dev
