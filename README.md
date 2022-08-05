@@ -21,7 +21,7 @@ pnpm i # 如果你没装过 pnpm, 可以先运行: npm install -g pnpm
 
 ### 开发
 
-执行以下命令启动项目，浏览器访问 http://localhost:5173 看到页面
+执行以下命令启动项目，浏览器访问 http://localhost:5173
 
 ```bash
 pnpm dev
