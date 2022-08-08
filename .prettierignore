@@ -1,4 +1,4 @@
-.github/dependabot.yml
-dist/
+.github
+dist
 LICENSE.md
 pnpm-lock.yaml
