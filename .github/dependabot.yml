@@ -5,7 +5,7 @@ updates:
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     # Allow up to 10 open pull requests for GitHub Actions dependencies
     open-pull-requests-limit: 10
 
@@ -13,6 +13,6 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     # Allow up to 10 open pull requests for npm dependencies
     open-pull-requests-limit: 10
