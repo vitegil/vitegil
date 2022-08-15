@@ -16,7 +16,7 @@
     "vue": "^3.2.37"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.26.0",
+    "@antfu/eslint-config": "^0.26.1",
     "@vitejs/plugin-vue": "^3.0.1",
     "eslint": "^8.22.0",
     "prettier": "2.7.1",

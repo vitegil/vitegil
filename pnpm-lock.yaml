@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@antfu/eslint-config': ^0.26.0
+  '@antfu/eslint-config': ^0.26.1
   '@vitejs/plugin-vue': ^3.0.1
   eslint: ^8.22.0
   pnpm: ^7.9.0
@@ -67,8 +67,8 @@ packages:
       - typescript
     dev: true
 
-  /@antfu/eslint-config-ts/0.26.0_4rv7y5c6xz3vfxwhbrcxxi73bq:
-    resolution: {integrity: sha512-LnJgBP+XAsGijfmjAZk6BDxlt7UYGiXyCIviLDgg8bmPaLAX3I+i0wmj9DwhDIYeXForeP/Io+dBT63k5BheBw==}
+  /@antfu/eslint-config-ts/0.26.1_qugx7qdu5zevzvxaiqyxfiwquq:
+    resolution: {integrity: sha512-kFOjWzGJBQnkYPtygmLF5e4sBRDSfYpg1OEqhqUtX7YazTr+YDuOlw+jg92QHfk7b+BfVCwl41/kIrmig6J9cw==}
     peerDependencies:
       eslint: '>=7.4.0'
       typescript: '>=3.9'
@@ -1098,8 +1098,8 @@ packages:
       - supports-color
     dev: true
 
-  /eslint-plugin-antfu/0.26.0_4rv7y5c6xz3vfxwhbrcxxi73bq:
-    resolution: {integrity: sha512-hc5Bb6EH6zM/Vjy0scOQydlG9I1DDocG4AikyUfqjSFneWv6eNItej9LHYTXEGc0iGosCysNS4tPUAPuhBHkCA==}
+  /eslint-plugin-antfu/0.26.1_qugx7qdu5zevzvxaiqyxfiwquq:
+    resolution: {integrity: sha512-zVLd/Kx2IZvV2LmBPLCprHd24fmAS12VRYPHz2BsAl+XGvnmsnYeIbj4rJqKeO2Q5D5fRuaPjWZLyrEhwHVMdw==}
     dependencies:
       '@typescript-eslint/utils': 5.33.0_4rv7y5c6xz3vfxwhbrcxxi73bq
     transitivePeerDependencies:
