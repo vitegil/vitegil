@@ -7,7 +7,7 @@ specifiers:
   pnpm: ^7.9.0
   prettier: 2.7.1
   typescript: ^4.7.4
-  vite: ^3.0.5
+  vite: ^3.0.7
   vue: ^3.2.37
   vue-tsc: ^0.39.5
 
@@ -17,11 +17,11 @@ dependencies:
 
 devDependencies:
   '@antfu/eslint-config': 0.26.0_qugx7qdu5zevzvxaiqyxfiwquq
-  '@vitejs/plugin-vue': 3.0.1_vite@3.0.5+vue@3.2.37
+  '@vitejs/plugin-vue': 3.0.1_vite@3.0.7+vue@3.2.37
   eslint: 8.21.0
   prettier: 2.7.1
   typescript: 4.7.4
-  vite: 3.0.5
+  vite: 3.0.7
   vue-tsc: 0.39.5_typescript@4.7.4
 
 packages:
@@ -366,14 +366,14 @@ packages:
       eslint-visitor-keys: 3.3.0
     dev: true
 
-  /@vitejs/plugin-vue/3.0.1_vite@3.0.5+vue@3.2.37:
+  /@vitejs/plugin-vue/3.0.1_vite@3.0.7+vue@3.2.37:
     resolution: {integrity: sha512-Ll9JgxG7ONIz/XZv3dssfoMUDu9qAnlJ+km+pBA0teYSXzwPCIzS/e1bmwNYl5dcQGs677D21amgfYAnzMl17A==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       vite: ^3.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 3.0.5
+      vite: 3.0.7
       vue: 3.2.37
     dev: true
 
@@ -2634,8 +2634,8 @@ packages:
       spdx-expression-parse: 3.0.1
     dev: true
 
-  /vite/3.0.5:
-    resolution: {integrity: sha512-bRvrt9Tw8EGW4jj64aYFTnVg134E8hgDxyl/eEHnxiGqYk7/pTPss6CWlurqPOUzqvEoZkZ58Ws+Iu8MB87iMA==}
+  /vite/3.0.7:
+    resolution: {integrity: sha512-dILhvKba1mbP1wCezVQx/qhEK7/+jVn9ciadEcyKMMhZpsuAi/eWZfJRMkmYlkSFG7Qq9NvJbgFq4XOBxugJsA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
