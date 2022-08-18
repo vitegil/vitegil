@@ -14,6 +14,7 @@ import {
 import { LineChart, LineSeriesOption } from 'echarts/charts'
 import { UniversalTransition } from 'echarts/features'
 import { CanvasRenderer } from 'echarts/renderers'
+import colors from '@/constant/color'
 
 echarts.use([
   TitleComponent,
@@ -87,16 +88,7 @@ const defaultOption: EChartsOption = {
       showSymbol: false,
       areaStyle: {
         opacity: 0.8,
-        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-          {
-            offset: 0,
-            color: 'rgb(128, 255, 165)',
-          },
-          {
-            offset: 1,
-            color: 'rgb(1, 191, 236)',
-          },
-        ]),
+        color: colors.blue,
       },
       emphasis: {
         focus: 'series',
@@ -114,16 +106,7 @@ const defaultOption: EChartsOption = {
       showSymbol: false,
       areaStyle: {
         opacity: 0.8,
-        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-          {
-            offset: 0,
-            color: 'rgb(0, 221, 255)',
-          },
-          {
-            offset: 1,
-            color: 'rgb(77, 119, 255)',
-          },
-        ]),
+        color: colors.blue,
       },
       emphasis: {
         focus: 'series',

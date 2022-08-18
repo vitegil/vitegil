@@ -1,13 +1,11 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { optionA, optionB } from './echarts.ts'
-import getOption from '../ActionMonitor/echarts'
+import { optionA, optionB } from './echarts'
 import ECharts from '@/components/ECharts.vue'
 
 const TT_time = ref('187.5ms')
 const dom_time = ref('2.68s')
 const page_time = ref('2.74s')
-const optionC = getOption()
 </script>
 
 <template>
@@ -36,9 +34,14 @@ const optionC = getOption()
         </div>
       </div>
     </div>
-    <!-- <ECharts :option="optionA" />
-    <ECharts :option="optionB" /> -->
-    <ECharts :option="optionC" />
+    <div class="flex flex-row">
+      <div class="w-600px h-400px">
+      <ECharts :option="optionA" />
+    </div>
+    <div class="w-600px h-400px">
+      <ECharts :option="optionB" />
+    </div>
+    </div>
   </div>
 </template>
 

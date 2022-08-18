@@ -3,6 +3,7 @@ import { GridComponent } from 'echarts/components'
 import { LineChart } from 'echarts/charts'
 import { UniversalTransition } from 'echarts/features'
 import { CanvasRenderer } from 'echarts/renderers'
+import colors from '@/constant/color'
 
 echarts.use([GridComponent, LineChart, CanvasRenderer, UniversalTransition])
 
@@ -16,6 +17,7 @@ export const optionA = {
   yAxis: {
     type: 'value',
   },
+  color: colors.green,
   series: [
     {
       data: [820, 932, 901, 934, 1290, 1330, 1320],
@@ -34,6 +36,7 @@ export const optionB = {
   yAxis: {
     type: 'value',
   },
+  color: colors.yellow,
   series: [
     {
       data: [82, 92, 91, 34, 290, 130, 320],
