@@ -1,6 +1,7 @@
 {
   "name": "vitegil",
   "type": "module",
+  "version": "0.0.0",
   "scripts": {
     "build": "vite build",
     "lint": "eslint .",
@@ -10,6 +11,7 @@
     "typecheck": "vue-tsc --noEmit"
   },
   "dependencies": {
+    "@element-plus/icons-vue": "^2.0.9",
     "echarts": "^5.3.3",
     "element-plus": "^2.2.13",
     "vue": "^3.2.37",
