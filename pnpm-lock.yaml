@@ -7,6 +7,7 @@ specifiers:
   echarts: ^5.3.3
   element-plus: ^2.2.13
   eslint: ^8.22.0
+  pnpm: ^7.9.3
   prettier: 2.7.1
   typescript: ^4.7.4
   vite: ^3.0.8
@@ -21,6 +22,7 @@ dependencies:
   '@element-plus/icons-vue': 2.0.9_vue@3.2.37
   echarts: 5.3.3
   element-plus: 2.2.13_vue@3.2.37
+  pnpm: 7.9.3
   vue: 3.2.37
   vue-router: 4.1.3_vue@3.2.37
 
@@ -5039,6 +5041,12 @@ packages:
     resolution: {integrity: sha512-Nc3IT5yHzflTfbjgqWcCPpo7DaKy4FnpB0l/zCAW0Tc7jxAiuqSxHasntB3D7887LSrA93kDJ9IXovxJYxyLCA==}
     engines: {node: '>=4'}
     dev: true
+
+  /pnpm/7.9.3:
+    resolution: {integrity: sha512-0hpAD1vtILw0i9gTN4ffagnScWMW9/avfZIKllBUd++fAvCss+hVgPPDd0HS9XcOT675gid4H9esGkbLdaFy+w==}
+    engines: {node: '>=14.6'}
+    hasBin: true
+    dev: false
 
   /portfinder/1.0.32:
     resolution: {integrity: sha512-on2ZJVVDXRADWE6jnQaX0ioEylzgBpQk8r55NE4wjXW1ZxO+BgDlY6DXwj20i0V8eB4SenDQ00WEaxfiIQPcxg==}
