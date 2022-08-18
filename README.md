@@ -1,7 +1,3 @@
-> 访问[Vitegil开发者日志](https://tyx0j1lspc.feishu.cn/docx/doxcn0D4dR2DG7KfuDrF3Y49U3f)，及时沟通重要事项
-
-<br/>
-
 <p align="center">
   <a href="https://github.com/vitegil/vitegil" target="_blank" rel="noopener noreferrer">
     <img width="333" src="https://user-images.githubusercontent.com/62364938/182828182-e452fdee-b6ce-47a2-8bff-3e28a6f0f160.png" alt="Vitegil - Frontend Monitoring Service">
