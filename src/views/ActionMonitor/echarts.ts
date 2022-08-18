@@ -88,7 +88,7 @@ const defaultOption: EChartsOption = {
       showSymbol: false,
       areaStyle: {
         opacity: 0.8,
-        color: colors.blue,
+        color: colors.blue.echarts,
       },
       emphasis: {
         focus: 'series',
@@ -106,7 +106,7 @@ const defaultOption: EChartsOption = {
       showSymbol: false,
       areaStyle: {
         opacity: 0.8,
-        color: colors.blue,
+        color: colors.blue.echarts,
       },
       emphasis: {
         focus: 'series',

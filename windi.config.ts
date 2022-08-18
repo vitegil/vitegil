@@ -1,4 +1,5 @@
 import { defineConfig } from 'windicss/helpers'
+import { safelist } from './windi/linearGradient'
 
 export default defineConfig({
   shortcuts: {
@@ -7,4 +8,7 @@ export default defineConfig({
       padding: '20px',
     },
   },
+  safelist: [
+    ...safelist,
+  ],
 })

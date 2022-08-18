@@ -1,20 +1,46 @@
 import * as echarts from 'echarts/core'
+import { colors as linearGradients, genWindiClass } from '../../windi/linearGradient'
 
-const genLinearGradientColor = (startColor: string, endColor: string) =>
-  new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-    {
-      offset: 0,
-      color: startColor,
-    },
-    {
-      offset: 1,
-      color: endColor,
-    },
-  ])
-export default {
-  green: genLinearGradientColor('rgb(128, 255, 165)', 'rgb(1, 191, 236)'),
-  blue: genLinearGradientColor('rgb(0, 221, 255)', 'rgb(77, 119, 255)'),
-  purple: genLinearGradientColor('rgb(55, 162, 255)', 'rgb(116, 21, 219)'),
-  pink: genLinearGradientColor('rgb(255, 0, 135)', 'rgb(135, 0, 157)'),
-  yellow: genLinearGradientColor('rgb(255, 191, 0)', 'rgb(224, 62, 76)'),
+interface Color {
+  echarts: echarts.graphic.LinearGradient
+  windi: string
 }
+
+/**
+ * 生成可供 echarts 和 windi 使用的颜色
+ * @param startColor 开始颜色
+ * @param endColor 结束颜色
+ * @returns 
+ */
+const genLinearGradientColor = (
+  startColor: string,
+  endColor: string,
+): Color => {
+  const _startColor = startColor.replace(/\s*/g, '')
+  const _endColor = endColor.replace(/\s*/g, '')
+  return {
+    echarts: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+      {
+        offset: 0,
+        color: _startColor,
+      },
+      {
+        offset: 1,
+        color: _endColor,
+      },
+    ]),
+    windi: `bg-gradient-to-l ${genWindiClass(_startColor, _endColor)}`,
+  }
+}
+
+const colors = {
+  ...Object.keys(linearGradients).reduce<Record<string, Color>>((acc, key) => {
+    acc[key] = genLinearGradientColor(
+      linearGradients[key as keyof typeof linearGradients][0],
+      linearGradients[key as keyof typeof linearGradients][1],
+    )
+    return acc
+  }, {}),
+}
+
+export default colors

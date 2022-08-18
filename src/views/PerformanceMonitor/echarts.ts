@@ -17,7 +17,7 @@ export const optionA = {
   yAxis: {
     type: 'value',
   },
-  color: colors.green,
+  color: colors.green.echarts,
   series: [
     {
       data: [820, 932, 901, 934, 1290, 1330, 1320],
@@ -36,7 +36,7 @@ export const optionB = {
   yAxis: {
     type: 'value',
   },
-  color: colors.yellow,
+  color: colors.yellow.echarts,
   series: [
     {
       data: [82, 92, 91, 34, 290, 130, 320],
