@@ -5,6 +5,11 @@
 </p>
 <br/>
 
+<p align="center">
+  <a href="https://vitegil.netlify.app"><img src="https://api.netlify.com/api/v1/badges/e313f515-096a-42a7-992d-1a73cae0829e/deploy-status" alt="Netlify Status"></a>
+</p>
+<br/>
+
 # Vitegil 🔭
 
 ### 安装
@@ -12,7 +17,6 @@
 执行以下命令安装依赖
 
 ```bash
-#pnpm i  如果你没装过 pnpm, 可以先运行: npm install -g pnpm
 npm i
 ```
 
@@ -21,6 +25,5 @@ npm i
 执行以下命令启动项目，浏览器访问 http://localhost:5173
 
 ```bash
-# pnpm dev
 npm run dev
 ```
