@@ -16,7 +16,8 @@
 执行以下命令安装依赖
 
 ```bash
-pnpm i # 如果你没装过 pnpm, 可以先运行: npm install -g pnpm
+#pnpm i  如果你没装过 pnpm, 可以先运行: npm install -g pnpm
+npm i
 ```
 
 ### 开发
@@ -24,5 +25,6 @@ pnpm i # 如果你没装过 pnpm, 可以先运行: npm install -g pnpm
 执行以下命令启动项目，浏览器访问 http://localhost:5173
 
 ```bash
-pnpm dev
+# pnpm dev
+npm run dev
 ```
