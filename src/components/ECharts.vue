@@ -1,6 +1,7 @@
 <script lang="ts" setup>
-import { ref, onMounted } from 'vue'
-import { init, ComposeOption } from 'echarts/core'
+import { onMounted, ref } from 'vue'
+import type { ComposeOption } from 'echarts/core'
+import { init } from 'echarts/core'
 
 // TODO: 完善 TS 类型定义
 type OptionType = any
@@ -21,5 +22,5 @@ onMounted(() => {
 </script>
 
 <template>
-  <div ref="canvaRef" class="w-full h-full"></div>
+  <div ref="canvaRef" class="w-full h-full" />
 </template>

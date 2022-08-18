@@ -8,9 +8,12 @@
   // Extension configs
   "cSpell.words": [
     "antfu",
+    "echarts",
     "pnpm",
+    "TTFB",
     "vite",
-    "vitegil"
+    "vitegil",
+    "windicss"
   ],
   "GitCommitPlugin.ShowEmoji": false,
   "GitCommitPlugin.MaxSubjectWords": 50
