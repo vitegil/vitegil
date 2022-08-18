@@ -1,4 +1,7 @@
 {
   "extends": "@antfu",
-  "no-console": false
+  "rules": {
+    // 可以出现console
+    "no-console": "off"
+  }
 }

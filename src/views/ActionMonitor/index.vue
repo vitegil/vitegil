@@ -15,8 +15,8 @@ const optionB = getOption({
 })
 
 // 模拟获取展示的数据
-let pv = ref(1200)
-let uv = ref(400)
+const pv = ref(1200)
+const uv = ref(400)
 </script>
 
 <template>
@@ -28,13 +28,17 @@ let uv = ref(400)
         class="flex flex-col p-15px items-center basis-1/5 w-80px h-80px rounded-4xl bg-gradient-to-l from-yellow-500 from-green-500/50 to-blue-500/50"
       >
         <p>浏览量(PV)</p>
-        <p class="font-semibold text-2xl">{{ pv }}</p>
+        <p class="font-semibold text-2xl">
+          {{ pv }}
+        </p>
       </div>
       <div
         class="flex flex-col p-15px items-center basis-1/5 w-80px h-80px rounded-4xl bg-gradient-to-l from-yellow-500 from-green-500/50 to-blue-500/50"
       >
         <p>访客数(UV)</p>
-        <p class="font-semibold text-2xl">{{ uv }}</p>
+        <p class="font-semibold text-2xl">
+          {{ uv }}
+        </p>
       </div>
     </div>
   </div>

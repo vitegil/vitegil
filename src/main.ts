@@ -6,7 +6,6 @@ import 'element-plus/dist/index.css'
 import 'virtual:windi.css'
 import router from '@/router/index'
 
-
 // 创建实例
 const app = createApp(App)
 // 全局注册组件（也可以使用局部注册）
