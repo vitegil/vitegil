@@ -10,13 +10,9 @@ specifiers:
   typescript: ^4.7.4
   vite: ^3.0.5
   vue: ^3.2.37
-<<<<<<< HEAD
   vue-cli-plugin-windicss: ~1.1.6
   vue-router: ^4.1.3
   vue-tsc: ^0.39.5
-=======
-  vue-tsc: ^0.40.1
->>>>>>> fbadb24ed95845d7f4082f960daab127c5731732
 
 dependencies:
   element-plus: registry.npmmirror.com/element-plus/2.2.13_vue@3.2.37
@@ -30,14 +26,9 @@ devDependencies:
   eslint: 8.22.0
   prettier: 2.7.1
   typescript: 4.7.4
-<<<<<<< HEAD
   vite: 3.0.5
   vue-cli-plugin-windicss: registry.npmmirror.com/vue-cli-plugin-windicss/1.1.6
   vue-tsc: 0.39.5_typescript@4.7.4
-=======
-  vite: 3.0.7
-  vue-tsc: 0.40.1_typescript@4.7.4
->>>>>>> fbadb24ed95845d7f4082f960daab127c5731732
 
 packages:
 

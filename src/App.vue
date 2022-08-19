@@ -1,4 +1,12 @@
-<script>
+<script lang="ts" setup>
+import TheNavMenu from './components/TheNavMenu.vue'
+import TheHeaderMenu from './components/TheHeaderMenu.vue'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
+</script>
+
+<!-- <script>
 import TheNavMenu from './components/TheNavMenu.vue'
 import TheHeaderMenu from './components/TheHeaderMenu.vue'
 
@@ -8,22 +16,18 @@ export default {
     TheNavMenu,
     TheHeaderMenu,
   },
+  computed: {
+    currentRouteName() {
+      return this.$route.name
+    },
+  },
 }
-</script>
+</script> -->
 
 <template>
-  <!-- <div>
-    <el-card class="relative m-20px p-15px">
-      <TheHeaderMenu />
-    </el-card>
-    <el-card class="h-min-75vh m-20px p-15px">
-      <div class="flex">
-        <TheNavMenu class="w-200px mr-50px" />
-        <router-view />
-      </div>
-    </el-card>
-  </div> -->
-  <div class="w-screen h-screen flex flex-col p-20px">
+  <router-view class="w-full h-full" v-if="route.name == 'Login'" />
+
+  <div class="w-screen h-screen flex flex-col p-20px" v-else>
     <TheHeaderMenu class="mb-20px" />
     <div class="card h-1px flex-grow flex pl-0">
       <TheNavMenu />

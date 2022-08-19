@@ -39,5 +39,5 @@ let uv = ref(400)
     </div>
   </div>
 
-  <ECharts :option="optionB" />
+  <ECharts :option="optionB" class="ml-20px" />
 </template>

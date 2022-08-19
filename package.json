@@ -12,6 +12,7 @@
   "dependencies": {
     "echarts": "^5.3.3",
     "element-plus": "^2.2.13",
+    "nprogress": "^0.2.0",
     "pnpm": "^7.9.0",
     "vue": "^3.2.37",
     "vue-router": "^4.1.3"

@@ -15,7 +15,7 @@ const route = ref(router.currentRoute)
 
 const isCollapse = ref(false)
 const configMenu = [
-  { name: '用户行为监控', icon: TrendCharts, path: '/' },
+  { name: '用户行为监控', icon: TrendCharts, path: '/action-monitor' },
   { name: '异常监控', icon: WarnTriangleFilled, path: '/exception-monitor' },
   { name: '性能数据监控', icon: Coin, path: '/performance-monitor' },
   { name: '用户监控列表', icon: List, path: '/user-monitor-list' },

@@ -2,8 +2,13 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 
 const monitorRoutes: RouteRecordRaw[] = [
   {
-    name: 'ActionMonitor',
+    name: 'Login',
     path: '/',
+    component: () => import('@/views/Login/Login.vue'),
+  },
+  {
+    name: 'ActionMonitor',
+    path: '/action-monitor',
     component: () => import('@/views/ActionMonitor/index.vue'),
   },
   {
