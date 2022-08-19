@@ -10,7 +10,7 @@ import router from '@/router/index'
 // 创建实例
 const app = createApp(App)
 // 全局注册组件（也可以使用局部注册）
-app.use(ElementPlus, { size: 'small', zIndex: 3000 })
+app.use(ElementPlus)
 app.use(router)
 app.mount('#app')
 

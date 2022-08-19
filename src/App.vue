@@ -25,7 +25,9 @@ export default {
 </script> -->
 
 <template>
-  <router-view class="w-full h-full" v-if="route.name == 'Login'" />
+  <div class="w-screen h-screen" v-if="route.name == 'Login'">
+    <router-view />
+  </div>
 
   <div class="w-screen h-screen flex flex-col p-20px" v-else>
     <TheHeaderMenu class="mb-20px" />

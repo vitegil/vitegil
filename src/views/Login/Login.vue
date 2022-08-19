@@ -28,63 +28,45 @@ let loginInfo = {
 </script>
 
 <template>
-  <div class="flex h-[100%] w-full">
+  <div class="flex h-full w-full">
     <!-- 左侧图 -->
-    <div class="w-800px bg-gray-500">
-      <div class="flex items-center text-white p-30px mb-40px">
+    <div class="flex-grow bg-gray-700 text-white relative">
+      <div class="w-full flex justify-center items-center pt-30px absolute">
         <img
           src="@/assets/imgs/logo.png"
-          alt=""
-          class="w-100px h-50px mr-20px"
+          class="w-100px mr-20px filter brightness-251"
         />
-        <span class="text-20px font-bold"
-          >Vitegil - Frontend Monitoring Service</span
-        >
+        <span class="text-20px font-bold">
+          Vitegil - Frontend Monitoring Service
+        </span>
       </div>
-      <div class="flex flex-col justify-center items-center">
-        <img
-          src="@/assets/svgs/login-box-bg.svg"
-          key="1"
-          alt=""
-          class="w-350px"
-        />
-        <div class="text-3xl text-white" key="2">欢迎登录前端监控系统</div>
+      <div class="h-full flex flex-col justify-center items-center">
+        <img src="@/assets/svgs/login-box-bg.svg" class="w-350px" />
+        <div class="text-3xl">欢迎登录前端监控系统</div>
       </div>
     </div>
     <!-- 右侧登录 -->
-    <div class="w-[calc(100%-800px) flex flex-col justify-between items-center">
-      <h3>登录</h3>
-      <el-form
-        ref="ruleFormRef"
-        :model="ruleForm"
-        status-icon
-        :rules="rules"
-        label-width="120px"
-      >
-        <el-form-item label="账号" prop="checkPass">
-          <el-input
-            v-model="ruleForm.checkPass"
-            type="account"
-            autocomplete="off"
-          />
-        </el-form-item>
-        <el-form-item label="密码" prop="pass">
-          <el-input
-            v-model="ruleForm.password"
-            type="password"
-            autocomplete="off"
-          />
-        </el-form-item>
-        
-        <el-form-item>
-          <el-button @click="login" size="default">登录</el-button>
-          <el-button type="primary" size="default" @click="register"
-            >注册</el-button
-          >
-        </el-form-item>
-      </el-form>
+    <div class="w-[50%] h-full flex flex-col justify-center items-center">
+      <div class="w-400px">
+        <div class="text-center text-2xl font-bold mb-20px">登录</div>
+        <el-form status-icon label-position="top">
+          <el-form-item label="账号">
+            <el-input size="large" type="account" />
+          </el-form-item>
+          <el-form-item label="密码">
+            <el-input size="large" type="password" />
+          </el-form-item>
+
+          <el-form-item>
+            <el-button class="w-full" size="large" type="primary">
+              登录
+            </el-button>
+          </el-form-item>
+          <el-form-item>
+            <el-button class="w-full" size="large">注册</el-button>
+          </el-form-item>
+        </el-form>
+      </div>
     </div>
   </div>
 </template>
-
-<style></style>
