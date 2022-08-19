@@ -30,7 +30,12 @@ const options = [optionA, optionB, optionC, optionD]
         </div>
       </div>
     </div>
-    <div class="grid grid-cols-[repeat(auto-fill,minmax(500px,1fr))]">
+    <!-- 
+      repeat(auto-fill,minmax( WIDTH ,1fr)) 中的 WIDTH 表示标准宽度，含义为：
+      1）当该行剩余空间 >=WIDTH 时，该行添加一项
+      2）当该行剩余空间 <WIDTH，不能添加新项，则已有项平均分配剩余宽度
+    -->
+    <div class="grid grid-cols-[repeat(auto-fill,minmax(480px,1fr))]">
       <div
         class="w-full h-400px"
         v-for="(option, index) in options"
