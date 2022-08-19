@@ -7,6 +7,7 @@ import colors from '@/style/color'
 const TT_time = ref('187.5ms')
 const dom_time = ref('2.68s')
 const page_time = ref('2.74s')
+const options = [optionA, optionB, optionC, optionD]
 </script>
 
 <template>
@@ -29,20 +30,13 @@ const page_time = ref('2.74s')
         </div>
       </div>
     </div>
-    <div class="flex flex-row">
-      <div class="w-600px h-400px">
-        <ECharts :option="optionA" />
-      </div>
-      <div class="w-600px h-400px">
-        <ECharts :option="optionB" />
-      </div>
-    </div>
-    <div class="flex flex-row">
-      <div class="w-600px h-400px">
-        <ECharts :option="optionC" />
-      </div>
-      <div class="w-600px h-400px">
-        <ECharts :option="optionD" />
+    <div class="grid grid-cols-[repeat(auto-fill,minmax(500px,1fr))]">
+      <div
+        class="w-full h-400px"
+        v-for="(option, index) in options"
+        :key="index"
+      >
+        <ECharts :option="option" />
       </div>
     </div>
   </div>
