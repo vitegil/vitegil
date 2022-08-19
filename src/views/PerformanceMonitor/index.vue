@@ -1,64 +1,59 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
-import {option_all } from './echarts'
+import { option_all } from './echarts'
 import ECharts from '@/components/ECharts.vue'
-import colors from '@/constant/color'
+import colors from '@/style/color'
 
-const TTI_time = ref('187.5ms')
-const TTF_time = ref('187.5ms')
-const dom_time = ref('2.68s')
-const FCP_time = ref('2.74s')
-const FMP_time = ref('2.74s')
-const LCP_time = ref('2.74s')
-
+const performanceData = ref([
+  {
+    name: 'TTI平均时间',
+    value: '187.5ms',
+    color: colors.green,
+  },
+  {
+    name: 'TTF平均时间',
+    value: '187.5ms',
+    color: colors.yellow,
+  },
+  {
+    name: 'Dom解析时间',
+    value: '2.68s',
+    color: colors.pink,
+  },
+  {
+    name: 'FCP时间',
+    value: '2.74s',
+    color: colors.green,
+  },
+  {
+    name: 'FMP时间',
+    value: '2.74s',
+    color: colors.yellow,
+  },
+  {
+    name: 'LCP时间',
+    value: '2.74s',
+    color: colors.pink,
+  },
+])
 </script>
 
 <template>
   <div class="mb-50px mt-20px ml-20px">
     <p>页面性能监控</p>
     <el-divider />
-    <div class="flex justify-evenly mb-20px">
+    <div class="grid grid-cols-3 gap-3 justify-items-center">
       <div
-        :class="`flex flex-col p-15px items-center basis-1/5 w-80px h-80px rounded-4xl ${colors.green.windi}`"
+        v-for="(item, index) in performanceData"
+        :key="index"
+        :class="`data-label w-m-250px ${item.color.bg}`"
       >
-        <p>TTI平均时间</p>
-        <p class="font-semibold text-2xl">{{ TTI_time }}</p>
-      </div>
-      <div
-        :class="`flex flex-col p-15px items-center basis-1/5 w-80px h-80px rounded-4xl bg-gradient-to-l ${colors.yellow.windi}`"
-      >
-        <p>TTFB平均时间</p>
-        <p class="font-semibold text-2xl">{{ TTF_time }}</p>
-      </div>
-      <div
-        :class="`flex flex-col p-15px items-center basis-1/5 w-80px h-80px rounded-4xl bg-gradient-to-l ${colors.pink.windi} text-white`"
-      >
-        <p>Dom解析时间</p>
-        <p class="font-semibold text-2xl">{{ dom_time }}</p>
-      </div>
-    </div>
-    <div class="flex justify-evenly">
-      <div
-        :class="`flex flex-col p-15px items-center basis-1/5 w-80px h-80px rounded-4xl ${colors.green.windi}`"
-      >
-        <p>FCP时间</p>
-        <p class="font-semibold text-2xl">{{ FCP_time }}</p>
-      </div>
-      <div
-        :class="`flex flex-col p-15px items-center basis-1/5 w-80px h-80px rounded-4xl bg-gradient-to-l ${colors.yellow.windi}`"
-      >
-        <p>FMP时间</p>
-        <p class="font-semibold text-2xl">{{ FMP_time }}</p>
-      </div>
-      <div
-        :class="`flex flex-col p-15px items-center basis-1/5 w-80px h-80px rounded-4xl bg-gradient-to-l ${colors.pink.windi} text-white`"
-      >
-        <p>LCP时间</p>
-        <p class="font-semibold text-2xl">{{ LCP_time }}</p>
+        <p>{{ item.name }}</p>
+        <p class="font-semibold text-2xl">{{ item.value }}</p>
       </div>
     </div>
   </div>
-  <ECharts :option="option_all" class="ml-20px"/>
+  <ECharts :option="option_all" class="ml-20px" />
 </template>
 
 <style></style>

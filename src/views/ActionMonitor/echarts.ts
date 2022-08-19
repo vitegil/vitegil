@@ -14,7 +14,7 @@ import {
 import { LineChart, LineSeriesOption } from 'echarts/charts'
 import { UniversalTransition } from 'echarts/features'
 import { CanvasRenderer } from 'echarts/renderers'
-import colors from '@/constant/color'
+import colors from '@/style/color'
 
 echarts.use([
   TitleComponent,

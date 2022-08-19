@@ -6,7 +6,7 @@ export const colors = {
   yellow: ['rgb(255, 191, 0)', 'rgb(224, 62, 76)'],
 }
 
-export const genWindiClass = (
+export const genWindiLgBgClass = (
   startColor: string,
   endColor: string,
 ) => {
@@ -17,6 +17,6 @@ export const genWindiClass = (
 
 export const safelist = Object.values(colors).map(
   value => {
-    return genWindiClass(value[0], value[1])
+    return genWindiLgBgClass(value[0], value[1])
   },
 )

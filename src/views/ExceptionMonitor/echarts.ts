@@ -3,7 +3,7 @@ import { GridComponent, TitleComponent } from 'echarts/components'
 import { LineChart } from 'echarts/charts'
 import { UniversalTransition } from 'echarts/features'
 import { CanvasRenderer } from 'echarts/renderers'
-import colors from '@/constant/color'
+import colors from '@/style/color'
 import { BarChart } from 'echarts/charts'
 // import { color } from 'echarts'
 
