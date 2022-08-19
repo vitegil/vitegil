@@ -1,7 +1,7 @@
 <template>
   <div class="card h-100px flex justify-between items-center select-none">
     <div class="flex items-center">
-      <img src="@/assets/imgs/logo.png" alt="" class="w-200px h-60px mr-30px">
+      <img src="@/assets/imgs/logo.png" alt="" class="w-200px mr-30px">
       <span class="text-2xl font-bold leading-loose font-mono tracking-wide">
         Vitegil - Frontend Monitoring Service
       </span>
