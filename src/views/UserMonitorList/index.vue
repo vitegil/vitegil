@@ -47,7 +47,7 @@ const cureentData = computed<UserMonitor[]>(() => {
 
 <template>
   <!-- <div style="width: 100%"> -->
-  <div class="w-full">
+  <div class="main-page">
     <!-- <div>
       <el-button
         type="primary"
@@ -59,7 +59,7 @@ const cureentData = computed<UserMonitor[]>(() => {
     <!-- <el-button type="primary" size="default" :icon="Search">搜索</el-button> -->
     <!-- </div> -->
 
-    <div class="flex mt-20px ml-20px">
+    <div class="flex">
       <p class="mr-100px">用户监控列表</p>
       <el-button
         type="primary"
@@ -71,9 +71,9 @@ const cureentData = computed<UserMonitor[]>(() => {
       <!-- <el-button type="primary" size="default" :icon="Search">搜索</el-button> -->
     </div>
 
-    <el-divider class="ml-20px" />
+    <el-divider />
 
-    <el-table class="w-full ml-20px" :data="cureentData" stripe size="large">
+    <el-table class="w-full" :data="cureentData" stripe size="large">
       <el-table-column type="index" />
       <!-- <el-table-column prop="date" label="日期" /> -->
       <el-table-column prop="name" label="网站名" />

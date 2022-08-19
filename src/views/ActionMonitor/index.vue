@@ -20,24 +20,25 @@ let uv = ref(400)
 </script>
 
 <template>
-  <div class="mb-50px mt-20px ml-20px">
-    <p>流量数据</p>
-    <el-divider />
-    <div class="flex justify-evenly">
-      <div
-        class="flex flex-col p-15px items-center basis-1/5 w-80px h-80px rounded-4xl bg-gradient-to-l from-green-500/50 to-blue-500/50"
-      >
-        <p>浏览量(PV)</p>
-        <p class="font-semibold text-2xl">{{ pv }}</p>
-      </div>
-      <div
-        class="flex flex-col p-15px items-center basis-1/5 w-80px h-80px rounded-4xl bg-gradient-to-l from-green-500/50 to-blue-500/50"
-      >
-        <p>访客数(UV)</p>
-        <p class="font-semibold text-2xl">{{ uv }}</p>
+  <div class="main-page">
+    <div class="mb-50px">
+      <p>流量数据</p>
+      <el-divider />
+      <div class="flex justify-evenly">
+        <div
+          class="flex flex-col p-15px items-center basis-1/5 w-80px h-80px rounded-4xl bg-gradient-to-l from-green-500/50 to-blue-500/50"
+        >
+          <p>浏览量(PV)</p>
+          <p class="font-semibold text-2xl">{{ pv }}</p>
+        </div>
+        <div
+          class="flex flex-col p-15px items-center basis-1/5 w-80px h-80px rounded-4xl bg-gradient-to-l from-green-500/50 to-blue-500/50"
+        >
+          <p>访客数(UV)</p>
+          <p class="font-semibold text-2xl">{{ uv }}</p>
+        </div>
       </div>
     </div>
+    <ECharts :option="optionB" />
   </div>
-
-  <ECharts :option="optionB" class="ml-20px" />
 </template>

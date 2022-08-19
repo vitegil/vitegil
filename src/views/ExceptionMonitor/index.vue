@@ -10,8 +10,8 @@ const page_time = ref('2.74s')
 </script>
 
 <template>
-  <div>
-    <div class="mb-50px mt-20px ml-20px">
+  <div class="main-page">
+    <div class="mb-50px">
       <p>异常监控</p>
       <el-divider />
       <div class="flex justify-evenly">
@@ -29,7 +29,7 @@ const page_time = ref('2.74s')
         </div>
       </div>
     </div>
-    <div class="flex flex-row ml-20px">
+    <div class="flex flex-row">
       <div class="w-600px h-400px">
         <ECharts :option="optionA" />
       </div>
@@ -37,7 +37,7 @@ const page_time = ref('2.74s')
         <ECharts :option="optionB" />
       </div>
     </div>
-    <div class="flex flex-row ml-20px">
+    <div class="flex flex-row">
       <div class="w-600px h-400px">
         <ECharts :option="optionC" />
       </div>
