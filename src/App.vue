@@ -2,6 +2,7 @@
 import TheNavMenu from './components/TheNavMenu.vue'
 import TheHeaderMenu from './components/TheHeaderMenu.vue'
 import { useRoute } from 'vue-router'
+import { fullScreenRoutes } from '@/router'
 
 const route = useRoute()
 </script>
@@ -25,16 +26,23 @@ export default {
 </script> -->
 
 <template>
-  <div class="w-screen h-screen" v-if="route.name == 'Login'">
-    <router-view />
-  </div>
+  <div class="w-screen h-screen" v-if="route.name">
+    <router-view
+      v-if="
+        fullScreenRoutes
+          .map(route => route.name)
+          .filter(routeName => routeName)
+          .includes(route.name || '')
+      "
+    />
 
-  <div class="w-screen h-screen flex flex-col p-20px" v-else>
-    <TheHeaderMenu class="mb-20px" />
-    <div class="card h-1px flex-grow flex pl-0">
-      <TheNavMenu />
-      <div class="w-full h-full overflow-auto pl-20px">
-        <router-view />
+    <div class="w-full h-full flex flex-col p-20px" v-else>
+      <TheHeaderMenu class="mb-20px" />
+      <div class="card h-1px flex-grow flex pl-0">
+        <TheNavMenu />
+        <div class="w-full h-full overflow-auto pl-20px">
+          <router-view />
+        </div>
       </div>
     </div>
   </div>

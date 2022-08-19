@@ -2,11 +2,6 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 
 const monitorRoutes: RouteRecordRaw[] = [
   {
-    name: 'Login',
-    path: '/',
-    component: () => import('@/views/Login/Login.vue'),
-  },
-  {
     name: 'ActionMonitor',
     path: '/action-monitor',
     component: () => import('@/views/ActionMonitor/index.vue'),
@@ -27,7 +22,16 @@ const monitorRoutes: RouteRecordRaw[] = [
     component: () => import('@/views/UserMonitorList/index.vue'),
   },
 ]
+
+export const fullScreenRoutes: RouteRecordRaw[] = [
+  {
+    name: 'Login',
+    path: '/login',
+    component: () => import('@/views/Login/Login.vue'),
+  },
+]
+
 export default createRouter({
   history: createWebHistory(),
-  routes: [...monitorRoutes],
+  routes: [...fullScreenRoutes, ...monitorRoutes],
 })
