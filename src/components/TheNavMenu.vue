@@ -73,4 +73,8 @@ const configMenu = [
   color: var(--el-menu-active-color);
   background-color: var(--el-menu-hover-bg-color);
 }
+
+.flex-grow {
+  transition: all 10ms;
+}
 </style>
