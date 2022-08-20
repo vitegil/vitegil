@@ -27,7 +27,7 @@
 }
 
 #slogan {
-  font-family: 'Alex Brush', serif;
+  font-family: 'Alex Brush';
   font-weight: normal;
   font-style: normal;
   font-size: 2.5rem;
