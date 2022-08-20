@@ -1,5 +1,6 @@
-import { getLineOption } from './line'
-import { getHistogramOption } from './histogram'
-import { getCircleProgressOption } from './circle-progress'
-
-export { getLineOption, getHistogramOption, getCircleProgressOption }
+export { getLineOption } from './line'
+export type { LineOptionProps } from './line'
+export { getHistogramOption } from './histogram'
+export type { HistogramOptionProps } from './histogram'
+export { getCircleProgressOption } from './circle-progress'
+export type { CircleProgressOptionProps } from './circle-progress'

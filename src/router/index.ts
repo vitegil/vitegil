@@ -30,6 +30,11 @@ export const fullScreenRoutes: RouteRecordRaw[] = [
     path: '/',
     component: () => import('@/views/Login/Login.vue'),
   },
+  {
+    name: 'Demo',
+    path: '/demo',
+    component: () => import('@/views/Demo/index.vue'),
+  },
 ]
 
 export default createRouter({

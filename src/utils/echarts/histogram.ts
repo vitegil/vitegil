@@ -1,11 +1,10 @@
 import * as echarts from 'echarts/core'
 import { GridComponent, TitleComponent } from 'echarts/components'
-import { LineChart } from 'echarts/charts'
+import { BarChart, LineChart } from 'echarts/charts'
 import { UniversalTransition } from 'echarts/features'
 import { CanvasRenderer } from 'echarts/renderers'
-import { BarChart } from 'echarts/charts'
 import { getColorGroup } from './utils'
-import { BaseOption } from './type'
+import type { BaseOption } from './type'
 
 echarts.use([
   TitleComponent,
@@ -16,7 +15,10 @@ echarts.use([
   BarChart,
 ])
 
-type IOption = Pick<BaseOption, 'title' | 'colors' | 'labels' | 'datas'> & {
+export type HistogramOptionProps = Pick<
+  BaseOption,
+  'title' | 'colors' | 'labels' | 'datas'
+> & {
   /** 是否横向显示柱状图（默认纵向） */
   isHorizontal?: boolean
 }
@@ -30,7 +32,7 @@ export const getHistogramOption = ({
   datas,
   colors,
   isHorizontal = false,
-}: IOption) => {
+}: HistogramOptionProps) => {
   const dataAxis = {
     type: 'value',
   }
