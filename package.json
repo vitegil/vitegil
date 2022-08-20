@@ -1,12 +1,9 @@
 {
   "name": "vitegil",
-  "type": "module",
-  "version": "0.0.0",
-  "packageManager": "pnpm@7.9.3",
   "scripts": {
     "build": "vite build",
-    "lint": "eslint .",
     "dev": "vite",
+    "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "preview": "vite preview",
     "typecheck": "vue-tsc --noEmit"
@@ -16,7 +13,6 @@
     "echarts": "^5.3.3",
     "element-plus": "^2.2.13",
     "nprogress": "^0.2.0",
-    "pnpm": "^7.9.0",
     "vue": "^3.2.37",
     "vue-router": "^4.1.3"
   },
@@ -31,7 +27,5 @@
     "vue-cli-plugin-windicss": "~1.1.6",
     "vue-tsc": "^0.40.1",
     "windicss": "^3.5.6"
-  },
-  "packageManager": "pnpm@7.8.0",
-  "type": "module"
+  }
 }

@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="vitegil.netlify.app/" target="_blank" rel="noopener noreferrer">
+  <a href="https://vitegil.netlify.app/" target="_blank" rel="noopener noreferrer">
     <img width="333" src="https://user-images.githubusercontent.com/62364938/182828182-e452fdee-b6ce-47a2-8bff-3e28a6f0f160.png" alt="Vitegil - Frontend Monitoring Service">
   </a>
 </p>
