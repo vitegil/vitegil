@@ -1,30 +1,31 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, reactive } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 // import LoginModel from '@/views/Login/Components/Login.vue'
 // import RegisterModle from '@/views/Login/Components/Login.vue'
 
-const loading = ref(false)
-let loginInfo = {
-  account: '',
-  password: '',
+// const loading = ref(false)
+const formInline = reactive({
+  account: 'admine',
+  password: '123456',
+})
+const route = useRoute()
+const router = useRouter()
+function login() {
+  //1.判空  2.状态等待loading 3.axios发送后端 4.成功则跳转到首页
+  if (!formInline.account || !formInline.password) {
+    return
+  }
+  // loading = true
+  // let res = await login(this.login.account,(this.login.password));
+  // loading = false;
+  // if (res.data) {
+  // this.login = res.data;
+  console.log(route)
+  console.log(router)
+  router.push({ name: 'ActionMonitor' })
+  // }
 }
-//  async login() {
-//       //1.判空  2.状态等待loading 3.axios发送后端 4.成功则跳转到首页
-//       if (!this.login.account || !this.login.password) {
-//         return;
-//       }
-//       this.loading = true;
-//       // let res = await login(this.login.account,md5(this.login.password));
-//       let res = await login(this.login.account,(this.login.password));
-//       this.loading = false;
-//       // console.log(res.data);
-//       if (res.data) {
-//         this.login = res.data;
-//         this.$router.push({ name: 'SearchIndex' });
-//         } else {
-//           alert('账号或密码不对！');
-//         }
-//         }}
 </script>
 
 <template>
@@ -51,14 +52,27 @@ let loginInfo = {
         <div class="text-center text-2xl font-bold mb-20px">登录</div>
         <el-form status-icon label-position="top">
           <el-form-item label="账号">
-            <el-input size="large" type="account" />
+            <el-input
+              size="large"
+              type="account"
+              v-model="formInline.account"
+            />
           </el-form-item>
           <el-form-item label="密码">
-            <el-input size="large" type="password" />
+            <el-input
+              size="large"
+              type="password"
+              v-model="formInline.password"
+            />
           </el-form-item>
 
           <el-form-item>
-            <el-button class="w-full" size="large" type="primary">
+            <el-button
+              class="w-full"
+              size="large"
+              type="primary"
+              @click="login"
+            >
               登录
             </el-button>
           </el-form-item>

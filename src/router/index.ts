@@ -26,7 +26,7 @@ const monitorRoutes: RouteRecordRaw[] = [
 export const fullScreenRoutes: RouteRecordRaw[] = [
   {
     name: 'Login',
-    path: '/login',
+    path: '/',
     component: () => import('@/views/Login/Login.vue'),
   },
 ]
