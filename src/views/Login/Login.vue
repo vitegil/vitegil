@@ -6,7 +6,7 @@ import { useRoute, useRouter } from 'vue-router'
 
 // const loading = ref(false)
 const formInline = reactive({
-  account: 'admine',
+  account: 'admin',
   password: '123456',
 })
 const route = useRoute()
