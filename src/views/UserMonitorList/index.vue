@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 // 定义响应式的、可更改的 ref 变量
 // 对象赋值给 ref，对象通过 reactive() 转为具有深层次响应式的对象
-import { reactive, ref, onMounted, computed } from 'vue'
-import { pageSizde, currentPage, handleCurrentChange } from './page'
+import { computed, onMounted, reactive, ref } from 'vue'
+import { currentPage, handleCurrentChange, pageSizde } from './page'
 
 interface UserMonitor {
   date: string
@@ -27,7 +27,7 @@ onMounted(() => {
 // 新增dialog
 const dialogFormVisible = ref(false)
 const formLabelWidth = '80px'
-let form = reactive({
+const form = reactive({
   name: '',
   url: '',
 })
@@ -66,8 +66,9 @@ const cureentData = computed<UserMonitor[]>(() => {
         size="default"
         plain
         @click="dialogFormVisible = true"
-        >新建项目</el-button
       >
+        新建项目
+      </el-button>
       <!-- <el-button type="primary" size="default" :icon="Search">搜索</el-button> -->
     </div>
 
@@ -112,12 +113,8 @@ const cureentData = computed<UserMonitor[]>(() => {
     </el-form>
     <template #footer>
       <span class="dialog-footer">
-        <el-button @click="dialogFormVisible = false" size="default"
-          >Cancel</el-button
-        >
-        <el-button type="primary" size="default" @click="addItem"
-          >Confirm</el-button
-        >
+        <el-button size="default" @click="dialogFormVisible = false">Cancel</el-button>
+        <el-button type="primary" size="default" @click="addItem">Confirm</el-button>
       </span>
     </template>
   </el-dialog>

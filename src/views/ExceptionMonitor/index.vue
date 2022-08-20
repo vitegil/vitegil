@@ -1,12 +1,12 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import {
+  circleOptions,
+  healthScoreOption,
   optionA,
   optionB,
   optionC,
   optionD,
-  healthScoreOption,
-  circleOptions,
 } from './echarts'
 import ECharts from '@/components/ECharts.vue'
 import colors from '@/style/color'
@@ -41,25 +41,25 @@ const options = [optionA, optionB, optionC, optionD]
           <p class="font-semibold text-2xl">{{ page_time }}</p>
         </div> -->
           <div
-            class="w-full h-200px"
             v-for="(circleOption, index) in circleOptions"
             :key="index"
+            class="w-full h-200px"
           >
             <ECharts :option="circleOption" />
           </div>
         </div>
       </div>
     </div>
-    <!-- 
+    <!--
       repeat(auto-fill,minmax( WIDTH ,1fr)) 中的 WIDTH 表示标准宽度，含义为：
       1）当该行剩余空间 >=WIDTH 时，该行添加一项
       2）当该行剩余空间 <WIDTH，不能添加新项，则已有项平均分配剩余宽度
     -->
     <div class="grid grid-cols-[repeat(auto-fill,minmax(480px,1fr))]">
       <div
-        class="w-full h-400px"
         v-for="(option, index) in options"
         :key="index"
+        class="w-full h-400px"
       >
         <ECharts :option="option" />
       </div>

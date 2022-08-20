@@ -1,9 +1,9 @@
 <template>
   <div class="card h-100px flex justify-between items-center select-none">
     <div class="flex items-center">
-      <img src="@/assets/imgs/logo.png" alt="" class="w-200px h-60px mr-30px" />
-      <span class="text-2xl font-bold leading-loose font-mono tracking-wide">
-        Vitegil - Frontend Monitoring Service
+      <img src="@/assets/imgs/logo.png" alt="" class="w-16rem mr-5rem">
+      <span id="slogan" class="mt-0.8rem subpixel-antialiased truncate">
+        Frontend Monitoring Service
       </span>
     </div>
     <!-- <el-avatar
@@ -17,3 +17,21 @@
     />
   </div>
 </template>
+
+<style scoped>
+@font-face {
+  font-family: 'Alex Brush';
+  font-display: block;
+  font-style: normal;
+  font-weight: normal;
+  src: local('Alex Brush'), url('../assets/fonts/AlexBrush-Regular.woff') format('woff');
+}
+
+#slogan {
+  font-family: 'Alex Brush';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 2.5rem;
+  color: #b28330;
+}
+</style>

@@ -50,7 +50,9 @@ const performanceData = ref([
           :class="`data-label w-m-250px ${item.color.bg}`"
         >
           <p>{{ item.name }}</p>
-          <p class="font-semibold text-2xl">{{ item.value }}</p>
+          <p class="font-semibold text-2xl">
+            {{ item.value }}
+          </p>
         </div>
       </div>
     </div>
