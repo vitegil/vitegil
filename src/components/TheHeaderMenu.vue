@@ -1,7 +1,7 @@
 <template>
   <div class="card h-100px flex justify-between items-center select-none">
     <div class="flex items-center">
-      <img src="@/assets/imgs/logo.png" alt="" class="w-16rem mr-3rem">
+      <img src="@/assets/imgs/logo.png" alt="" class="w-16rem mr-5rem">
       <span id="slogan" class="mt-0.8rem subpixel-antialiased truncate">
         Frontend Monitoring Service
       </span>
