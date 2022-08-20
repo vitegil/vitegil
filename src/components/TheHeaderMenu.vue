@@ -21,6 +21,7 @@
 <style scoped>
 @font-face {
   font-family: 'Alex Brush';
+  font-display: block;
   font-style: normal;
   font-weight: normal;
   src: local('Alex Brush'), url('../assets/fonts/AlexBrush-Regular.woff') format('woff');
