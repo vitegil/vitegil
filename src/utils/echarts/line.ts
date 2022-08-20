@@ -15,7 +15,7 @@ echarts.use([
   BarChart,
 ])
 
-type IOption = Omit<BaseOption, 'colors'>
+type IOption = Pick<BaseOption, 'title' | 'color' | 'labels' | 'datas'>
 
 /**
  * 获取曲线图的配置项

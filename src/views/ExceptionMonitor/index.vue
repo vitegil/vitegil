@@ -1,6 +1,13 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { optionA, optionB, optionC, optionD } from './echarts'
+import {
+  optionA,
+  optionB,
+  optionC,
+  optionD,
+  healthScoreOption,
+  circleOptions,
+} from './echarts'
 import ECharts from '@/components/ECharts.vue'
 import colors from '@/style/color'
 
@@ -15,8 +22,13 @@ const options = [optionA, optionB, optionC, optionD]
     <div class="mb-50px">
       <p>异常监控</p>
       <el-divider />
-      <div class="flex justify-evenly">
-        <div :class="`data-label ${colors.green.bg}`">
+      <div class="flex items-center">
+        <div class="w-300px h-300px">
+          <ECharts :option="healthScoreOption" />
+        </div>
+        <el-divider direction="vertical" class="h-200px" />
+        <div class="flex-grow flex justify-evenly">
+          <!-- <div :class="`data-label ${colors.green.bg}`">
           <p>TTFB平均时间</p>
           <p class="font-semibold text-2xl">{{ TT_time }}</p>
         </div>
@@ -27,6 +39,14 @@ const options = [optionA, optionB, optionC, optionD]
         <div :class="`data-label ${colors.pink.bg} text-white`">
           <p>页面平均加载时间</p>
           <p class="font-semibold text-2xl">{{ page_time }}</p>
+        </div> -->
+          <div
+            class="w-full h-200px"
+            v-for="(circleOption, index) in circleOptions"
+            :key="index"
+          >
+            <ECharts :option="circleOption" />
+          </div>
         </div>
       </div>
     </div>

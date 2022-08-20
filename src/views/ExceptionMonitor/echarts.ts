@@ -1,4 +1,4 @@
-import { getLineOption } from '@/utils/echarts'
+import { getLineOption, getCircleProgressOption } from '@/utils/echarts'
 import colors from '@/style/color'
 
 export const optionA = getLineOption({
@@ -28,3 +28,42 @@ export const optionD = getLineOption({
   color: colors.blue.echarts,
   datas: [82, 92, 91, 34, 290, 130, 320],
 })
+
+export const healthScoreOption = getCircleProgressOption({
+  title: '37',
+  subTitle: '健康状态',
+  data: 37,
+  color: colors.green.echarts,
+  y: '40%',
+})
+
+export const circleOptions = [
+  getCircleProgressOption({
+    title: '89.9%',
+    subTitle: 'JS错误',
+    data: 89.9,
+    color: colors.pink.echarts,
+    width: 1,
+  }),
+  getCircleProgressOption({
+    title: '89.9%',
+    subTitle: '自定义异常',
+    data: 89.9,
+    color: colors.blue.echarts,
+    width: 1,
+  }),
+  getCircleProgressOption({
+    title: '89.9%',
+    subTitle: '静态资源异常',
+    data: 89.9,
+    color: colors.purple.echarts,
+    width: 1,
+  }),
+  getCircleProgressOption({
+    title: '93.5%',
+    subTitle: '接口异常',
+    data: 93.5,
+    color: colors.yellow.echarts,
+    width: 1,
+  }),
+]

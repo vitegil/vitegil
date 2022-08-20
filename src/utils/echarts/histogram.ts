@@ -16,7 +16,7 @@ echarts.use([
   BarChart,
 ])
 
-type IOption = Omit<BaseOption, 'color'> & {
+type IOption = Pick<BaseOption, 'title' | 'colors' | 'labels' | 'datas'> & {
   /** 是否横向显示柱状图（默认纵向） */
   isHorizontal?: boolean
 }
