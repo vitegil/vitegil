@@ -19,8 +19,15 @@
 ```bash
 npm i
 ```
+### 模拟mock环境下
 
-### 开发
+执行以下命令启动项目
+
+```bash
+npm run dev-mock
+```
+
+### 开发环境下
 
 执行以下命令启动项目，浏览器访问 http://localhost:5173
 

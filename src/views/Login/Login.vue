@@ -2,10 +2,9 @@
 import { reactive, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { loginApi } from '@/dao/api'
-import { close, start } from '@/utils/nprogress'
-// const loading = ref(false)
-const isLogin = ref(false)
 
+// const loading = ref(false)
+const isWrong = ref()
 const formInline = reactive({
   account: 'admine',
   password: '123456',
@@ -14,18 +13,20 @@ const route = useRoute()
 const router = useRouter()
 
 async function login() {
-  start()
+  isWrong.value = false
   // 1.判空  2.状态等待loading 3.axios发送后端 4.成功则跳转到首页
-  if (!formInline.account || !formInline.password)
-    return
+  if (!formInline.account || !formInline.password) {
+    isWrong.value = true
+    return false
+  }
   // loading = true
   // let res = await login_api(formInline.account,formInline.password);
-  // loading = false;
-  // if (res) {
-  // isLogin = res.status
-  close()
-  router.push({ name: 'ActionMonitor' })
+  // loading = false
+  // if (!res)
+  isWrong.value = true
+  // return false
   // }
+  router.push({ name: 'ActionMonitor' })
 }
 </script>
 
@@ -71,7 +72,7 @@ async function login() {
             />
           </el-form-item>
 
-          <el-form-item>
+          <el-form-item class="mt-50px">
             <el-button
               class="w-full"
               size="large"
@@ -81,12 +82,19 @@ async function login() {
               登录
             </el-button>
           </el-form-item>
-          <el-form-item>
+          <!-- <el-form-item>
             <el-button class="w-full" size="large">
               注册
             </el-button>
-          </el-form-item>
+          </el-form-item> -->
         </el-form>
+        <el-alert
+          v-if="isWrong"
+          title="请填写正确的账号和密码"
+          type="error"
+          description="wrong account or password"
+          show-icon
+        />
       </div>
     </div>
   </div>
