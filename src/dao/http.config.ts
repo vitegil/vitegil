@@ -1,13 +1,24 @@
+/**
+ * @file 创建axios实例/网络请求的工具,拦截器、公共地址等基础配置
+ */
+
 import axios from 'axios'
 
-const instance = axios.create({})
-
-instance.interceptors.request.use(config => {
-  return config
+const http = axios.create({
+  // 需要改
+  // baseURL: 'http://10.1.10.27:8080/NovSearchPlatform',
+  timeout: 1000,
 })
 
-instance.interceptors.response.use(response => {
-  return response
-})
+export default http
 
-export default instance
+// import axios from 'axios'
+// const instance = axios.create({})
+// 拦截器
+// instance.interceptors.request.use(config => {
+//   return config
+// })
+// instance.interceptors.response.use(response => {
+//   return response
+// })
+// export default instance

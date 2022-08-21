@@ -1,4 +1,4 @@
-import { getLineOption, getCircleProgressOption } from '@/utils/echarts'
+import { getCircleProgressOption, getLineOption } from '@/utils/echarts'
 import colors from '@/style/color'
 
 export const optionA = getLineOption({
@@ -22,12 +22,12 @@ export const optionC = getLineOption({
   datas: [82, 92, 91, 34, 290, 130, 320],
 })
 
-export const optionD = getLineOption({
-  title: '自定义异常趋势（click-event）',
-  labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-  color: colors.blue.echarts,
-  datas: [82, 92, 91, 34, 290, 130, 320],
-})
+// export const optionD = getLineOption({
+//   title: '自定义异常趋势（click-event）',
+//   labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+//   color: colors.blue.echarts,
+//   datas: [82, 92, 91, 34, 290, 130, 320],
+// })
 
 export const healthScoreOption = getCircleProgressOption({
   title: '37',
@@ -45,13 +45,13 @@ export const circleOptions = [
     color: colors.pink.echarts,
     width: 1,
   }),
-  getCircleProgressOption({
-    title: '89.9%',
-    subTitle: '自定义异常',
-    data: 89.9,
-    color: colors.blue.echarts,
-    width: 1,
-  }),
+  // getCircleProgressOption({
+  //   title: '89.9%',
+  //   subTitle: '自定义异常',
+  //   data: 89.9,
+  //   color: colors.blue.echarts,
+  //   width: 1,
+  // }),
   getCircleProgressOption({
     title: '89.9%',
     subTitle: '静态资源异常',

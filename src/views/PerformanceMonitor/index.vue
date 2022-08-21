@@ -7,32 +7,32 @@ import colors from '@/style/color'
 const performanceData = ref([
   {
     name: 'TTI平均时间',
-    value: '187.5ms',
+    value: '187.5',
     color: colors.green,
   },
   {
     name: 'TTF平均时间',
-    value: '187.5ms',
+    value: '187.5',
     color: colors.yellow,
   },
   {
     name: 'Dom解析时间',
-    value: '2.68s',
+    value: '2.68',
     color: colors.pink,
   },
   {
     name: 'FCP时间',
-    value: '2.74s',
+    value: '2.74',
     color: colors.green,
   },
   {
     name: 'FMP时间',
-    value: '2.74s',
+    value: '2.74',
     color: colors.yellow,
   },
   {
     name: 'LCP时间',
-    value: '2.74s',
+    value: '2.74',
     color: colors.pink,
   },
 ])
@@ -51,7 +51,7 @@ const performanceData = ref([
         >
           <p>{{ item.name }}</p>
           <p class="font-semibold text-2xl">
-            {{ item.value }}
+            {{ item.value }}ms
           </p>
         </div>
       </div>

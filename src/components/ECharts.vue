@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import type { ComposeOption } from 'echarts/core'
 import { init } from 'echarts/core'
 

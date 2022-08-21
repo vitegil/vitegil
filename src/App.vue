@@ -1,7 +1,7 @@
 <script lang="ts" setup>
+import { useRoute } from 'vue-router'
 import TheNavMenu from './components/TheNavMenu.vue'
 import TheHeaderMenu from './components/TheHeaderMenu.vue'
-import { useRoute } from 'vue-router'
 import { fullScreenRoutes } from '@/router'
 
 const route = useRoute()
@@ -26,7 +26,7 @@ export default {
 </script> -->
 
 <template>
-  <div class="w-screen h-screen" v-if="route.name">
+  <div v-if="route.name" class="w-screen h-screen">
     <router-view
       v-if="
         fullScreenRoutes
@@ -36,7 +36,7 @@ export default {
       "
     />
 
-    <div class="w-full h-full flex flex-col p-20px" v-else>
+    <div v-else class="w-full h-full flex flex-col p-20px">
       <TheHeaderMenu class="mb-20px" />
       <div class="card h-1px flex-grow flex pl-0">
         <TheNavMenu />
