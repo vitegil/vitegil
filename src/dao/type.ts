@@ -37,12 +37,6 @@ export interface Performance {
   time: null
 }
 
-export interface UserMonitor {
-  date: string
-  name: string
-  address: string
-}
-
 export interface UVRes {
   tatalUV: number
   timeArr: number[]
@@ -63,3 +57,13 @@ export interface ErrorRes {
   jsError: ErrorItem
   resourceError: ErrorItem
 }
+
+export interface UserMonitor {
+  id: number
+  adminName: string
+  appId: string
+  appName: string
+  appDesc: string
+}
+
+export type UserMonitorRes = UserMonitor[]

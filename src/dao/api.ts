@@ -1,4 +1,11 @@
-import type { BaseResponse, ErrorRes, PVRes, Performance, UVRes } from './type'
+import type {
+  BaseResponse,
+  ErrorRes,
+  PVRes,
+  Performance,
+  UVRes,
+  UserMonitorRes,
+} from './type'
 import http from '@/dao/http.config'
 
 // 登录
@@ -78,27 +85,32 @@ export const performanceApi = async (): Promise<Performance | false> => {
 }
 
 // 用户监控
-export const addAppApi = async (appName: string, appId: string) => {
+export const addAppApi = async (
+  appName: string,
+  appId: string,
+): Promise<UserMonitorRes | false> => {
   try {
-    const res = await http.request({
+    const res = await http.request<BaseResponse<UserMonitorRes>>({
       method: 'post',
       url: 'app/addApp',
-      data: { name: appName, url: appId },
+      data: { data: { name: appName, appId } },
     })
-    return res.data
+    return res?.data?.data
   } catch (error) {
     console.log(error)
+    return false
   }
 }
 
-export const getAppApi = async () => {
+export const getAppApi = async (): Promise<UserMonitorRes | false> => {
   try {
-    const res = await http.request({
-      method: 'app/getApp',
-      url: 'getApp',
+    const res = await http.request<BaseResponse<UserMonitorRes>>({
+      method: 'get',
+      url: 'app/getApp',
     })
-    return res.data
+    return res?.data?.data
   } catch (error) {
     console.log(error)
+    return false
   }
 }
