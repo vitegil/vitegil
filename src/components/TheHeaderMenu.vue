@@ -1,3 +1,15 @@
+<script lang="ts" setup>
+import { useRouter } from 'vue-router'
+import { storageKey } from '@/constants'
+
+const router = useRouter()
+const avatarSrc = new URL('../assets/imgs/avatar.png', import.meta.url).toString()
+const logout = () => {
+  localStorage.removeItem(storageKey.appId)
+  router.push('/login')
+}
+</script>
+
 <template>
   <div class="card h-100px flex justify-between items-center select-none">
     <div class="flex items-center">
@@ -6,15 +18,16 @@
         Frontend Monitoring Service
       </span>
     </div>
-    <!-- <el-avatar
-      size="large"
-      class="ml-700px"
-      src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png"
-    /> -->
-    <el-avatar
-      size="large"
-      src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
-    />
+    <el-dropdown>
+      <el-avatar size="large" :src="avatarSrc" />
+      <template #dropdown>
+        <el-dropdown-menu>
+          <el-dropdown-item @click="logout">
+            退出登录
+          </el-dropdown-item>
+        </el-dropdown-menu>
+      </template>
+    </el-dropdown>
   </div>
 </template>
 
@@ -24,7 +37,8 @@
   font-display: block;
   font-style: normal;
   font-weight: normal;
-  src: local('Alex Brush'), url('../assets/fonts/AlexBrush-Regular.woff') format('woff');
+  src: local('Alex Brush'),
+    url('../assets/fonts/AlexBrush-Regular.woff') format('woff');
 }
 
 #slogan {
