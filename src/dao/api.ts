@@ -66,8 +66,8 @@ export const errorApi = async () => {
 export const performanceApi = async (): Promise<Performance | false> => {
   try {
     const res = await http.request({
-      method: 'post',
-      url: 'performance/savePerformance',
+      method: 'get',
+      url: 'performance/getPerformance',
       // params: { appId: 'www.baidu.cn' },
     })
     return res.data
@@ -82,8 +82,8 @@ export const performanceApi = async (): Promise<Performance | false> => {
 export const addAppApi = async (appName: string, appId: string) => {
   try {
     const res = await http.request({
-      method: 'get',
-      url: 'addApp',
+      method: 'post',
+      url: 'app/addApp',
       data: { name: appName, url: appId },
     })
     return res.data
@@ -96,7 +96,7 @@ export const addAppApi = async (appName: string, appId: string) => {
 export const getAppApi = async () => {
   try {
     const res = await http.request({
-      method: 'get',
+      method: 'app/getApp',
       url: 'getApp',
     })
     return res.data
