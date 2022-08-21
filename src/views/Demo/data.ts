@@ -4,11 +4,13 @@
 import { reactive } from 'vue'
 import { getFullData, getLastData } from './server'
 
+// 定义数据
 const datas = reactive<{ pv: number[]; uv: number[] }>({
   pv: [],
   uv: [],
 })
 
+// 初始化数据-立即执行函数-并发
 ;(async () => {
   const [pv, uv] = await Promise.all([getFullData(), getFullData()])
   datas.pv = pv.data

@@ -18,9 +18,10 @@ async function login() {
   if (!formInline.account || !formInline.password)
     return
   // loading = true
-  // let res = await loginApi(formInline.account,formInline.password);
+  // let res = await login_api(formInline.account,formInline.password);
   // loading = false;
   // if (res) {
+  // isLogin = res.status
   router.push({ name: 'ActionMonitor' })
   // }
 }

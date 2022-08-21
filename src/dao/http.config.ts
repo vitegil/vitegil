@@ -6,7 +6,7 @@ import axios from 'axios'
 
 const http = axios.create({
   // 需要改
-  // baseURL: 'http://10.1.10.27:8080/NovSearchPlatform',
+  baseURL: 'http://localhost:10002/api',
   timeout: 1000,
 })
 

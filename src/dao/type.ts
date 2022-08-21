@@ -1,4 +1,8 @@
-export interface Performance {
+export interface Base {
+  /** 登录api获取监控网页url */
+  userId: string
+}
+export interface Performance extends Base {
   /** 首次可交互时间 */
   timeToInteractive: number
   /** 发出页面请求到接收到应答数据第一个字节所花费的毫秒数 */
@@ -28,4 +32,10 @@ export interface Performance {
   //          number firstPaint;//页面首次渲染时间，即白屏时间
   //        String userId;//用uuid精准定位每个用户，指纹信息
   //      Timestamp time;//时间戳
+}
+
+export interface UserMonitor {
+  date: string
+  name: string
+  address: string
 }

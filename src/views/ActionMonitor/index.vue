@@ -36,6 +36,7 @@ onMounted(async () => {
     12, 22, 34, 23, 78, 87, 32, 90, 54, 3, 14, 56, 23, 45, 76, 67, 56, 97, 6,
     34, 60, 92, 34, 61,
   ]
+  // 实际获取数据
   // pvData.value = await pvApi()
   // uvData.value = await uvApi()
 })

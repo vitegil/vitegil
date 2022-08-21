@@ -1,69 +1,144 @@
+import { ref, watch } from 'vue'
+import {
+  allGrade,
+  jsError,
+  jsGrade,
+  promiseError,
+  promiseGrade,
+  resourceError,
+  resourceGrade,
+} from './data'
 import { getCircleProgressOption, getLineOption } from '@/utils/echarts'
 import colors from '@/style/color'
 
-export const optionA = getLineOption({
-  title: 'JS错误趋势（js-error）',
-  labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-  color: colors.green.echarts,
-  datas: [820, 932, 901, 934, 1290, 1330, 1320],
-})
-
-export const optionB = getLineOption({
-  title: '静态资源错误趋势（resource-error）',
-  labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-  datas: [82, 92, 91, 34, 290, 130, 320],
-  color: colors.yellow.echarts,
-})
-
-export const optionC = getLineOption({
-  title: 'Promise错误趋势（promise-error）',
-  labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-  color: colors.pink.echarts,
-  datas: [82, 92, 91, 34, 290, 130, 320],
-})
-
-// export const optionD = getLineOption({
-//   title: '自定义异常趋势（click-event）',
-//   labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-//   color: colors.blue.echarts,
-//   datas: [82, 92, 91, 34, 290, 130, 320],
-// })
-
-export const healthScoreOption = getCircleProgressOption({
-  title: '37',
+// 展示健康总数据，响应式ref+value+监听变化实时更新
+const circleStaticConfig = {
   subTitle: '健康状态',
-  data: 37,
   color: colors.green.echarts,
   y: '40%',
+}
+export const healthScoreOption = ref(
+  getCircleProgressOption({
+    title: allGrade.value.toString(),
+    data: allGrade.value,
+    ...circleStaticConfig,
+  }),
+)
+watch(allGrade, () => {
+  healthScoreOption.value = getCircleProgressOption({
+    title: allGrade.value.toString(),
+    data: allGrade.value,
+    ...circleStaticConfig,
+  })
 })
 
+// 展示其他健康数据
+const staticConfigA = {
+  subTitle: 'JS错误',
+  color: colors.pink.echarts,
+}
+const staticConfigB = {
+  subTitle: '静态资源异常',
+  color: colors.purple.echarts,
+}
+const staticConfigC = {
+  subTitle: '接口异常',
+  color: colors.yellow.echarts,
+}
 export const circleOptions = [
-  getCircleProgressOption({
-    title: '89.9%',
-    subTitle: 'JS错误',
-    data: 89.9,
-    color: colors.pink.echarts,
-    width: 1,
-  }),
-  // getCircleProgressOption({
-  //   title: '89.9%',
-  //   subTitle: '自定义异常',
-  //   data: 89.9,
-  //   color: colors.blue.echarts,
-  //   width: 1,
-  // }),
-  getCircleProgressOption({
-    title: '89.9%',
-    subTitle: '静态资源异常',
-    data: 89.9,
-    color: colors.purple.echarts,
-    width: 1,
-  }),
-  getCircleProgressOption({
-    title: '93.5%',
-    subTitle: '接口异常',
-    data: 93.5,
-    color: colors.yellow.echarts,
-    width: 1,
-  }),
+  ref(
+    getCircleProgressOption({
+      title: jsGrade.value.toString(),
+      data: jsGrade.value,
+      ...staticConfigA,
+    }),
+  ),
+  ref(
+    getCircleProgressOption({
+      title: resourceGrade.value.toString(),
+      data: resourceGrade.value,
+      ...staticConfigB,
+    }),
+  ),
+  ref(
+    getCircleProgressOption({
+      title: promiseGrade.value.toString(),
+      data: promiseGrade.value,
+      ...staticConfigC,
+    }),
+  ),
 ]
+watch([jsGrade, promiseGrade, resourceGrade], () => {
+  circleOptions[0].value = getCircleProgressOption({
+    title: jsGrade.value.toString(),
+    data: jsGrade.value,
+    ...staticConfigA,
+  })
+  circleOptions[1].value = getCircleProgressOption({
+    title: resourceGrade.value.toString(),
+    data: resourceGrade.value,
+    ...staticConfigB,
+  })
+  circleOptions[2].value = getCircleProgressOption({
+    title: promiseGrade.value.toString(),
+    data: promiseGrade.value,
+    ...staticConfigC,
+  })
+})
+
+// 异常趋势图
+const labelShown = Array(9)
+  .fill(0)
+  .map((value, index) => {
+    return `${3 * index}:00`
+  })
+
+const optionConfigA = {
+  title: 'JS错误趋势（js-error）',
+  labels: labelShown,
+  color: colors.green.echarts,
+}
+const optionConfigB = {
+  title: '静态资源错误趋势（resource-error）',
+  labels: labelShown,
+  color: colors.yellow.echarts,
+}
+const optionConfigC = {
+  title: 'Promise错误趋势（promise-error）',
+  labels: labelShown,
+  color: colors.pink.echarts,
+}
+
+export const optionA = ref(
+  getLineOption({
+    ...optionConfigA,
+    datas: jsError.value,
+  }),
+)
+export const optionB = ref(
+  getLineOption({
+    ...optionConfigB,
+    datas: promiseError.value,
+  }),
+)
+export const optionC = ref(
+  getLineOption({
+    ...optionConfigC,
+    datas: resourceError.value,
+  }),
+)
+
+watch([jsError, promiseError, resourceError], () => {
+  optionA.value = getLineOption({
+    ...optionConfigA,
+    datas: jsError.value,
+  })
+  optionB.value = getLineOption({
+    ...optionConfigB,
+    datas: promiseError.value,
+  })
+  optionC.value = getLineOption({
+    ...optionConfigC,
+    datas: resourceError.value,
+  })
+})

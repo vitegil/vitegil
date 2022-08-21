@@ -2,26 +2,34 @@
 // 定义响应式的、可更改的 ref 变量
 // 对象赋值给 ref，对象通过 reactive() 转为具有深层次响应式的对象
 import { computed, onMounted, reactive, ref } from 'vue'
-import { currentPage, handleCurrentChange, pageSizde } from './page'
+import { currentPage, handleCurrentChange, pageSize } from './page'
+import { addAppApi, getAppApi } from '@/dao/api'
+import type { UserMonitor } from '@/dao/type'
 
-interface UserMonitor {
-  date: string
-  name: string
-  address: string
-}
-
-const tableData = reactive<UserMonitor[]>([])
-const fakeData: UserMonitor[] = []
+const initData: UserMonitor[] = []
 for (let i = 0; i < 100; i++) {
-  fakeData.push({
+  initData.push({
     date: '2016-05-03',
     name: `Tom${i}`,
     address: 'No. 189, Grove St, Los Angelesaaaaaaaaaaaaaaaaaaaaaaaa',
   })
 }
 
-onMounted(() => {
-  tableData.push(...fakeData)
+const tableData = reactive<UserMonitor[]>(initData)
+
+;(async () => {
+  const res = await getAppApi()
+  if (res) {
+    tableData.length = 0
+    tableData.push(...res)
+  }
+})()
+
+// 展示数据 computed = reactive + watch
+const cureentData = computed<UserMonitor[]>(() => {
+  const starIndex = (currentPage.value - 1) * pageSize
+  const endIndex = currentPage.value * pageSize
+  return tableData.slice(starIndex, endIndex)
 })
 
 // 新增dialog
@@ -32,17 +40,13 @@ const form = reactive({
   url: '',
 })
 
-function addItem() {
+const addItem = async () => {
   dialogFormVisible.value = false
+  const newRes = await addAppApi(form.name, form.url)
+  tableData.length = 0
+  tableData.push(newRes)
   console.log('axios获取数据')
 }
-
-// computed = reactive + watch
-const cureentData = computed<UserMonitor[]>(() => {
-  const starIndex = (currentPage.value - 1) * pageSizde
-  const endIndex = currentPage.value * pageSizde
-  return tableData.slice(starIndex, endIndex)
-})
 </script>
 
 <template>
@@ -60,7 +64,9 @@ const cureentData = computed<UserMonitor[]>(() => {
     <!-- </div> -->
 
     <div class="flex">
-      <p class="mr-100px">用户监控列表</p>
+      <p class="mr-100px">
+        用户监控列表
+      </p>
       <el-button
         type="primary"
         size="default"
@@ -85,7 +91,7 @@ const cureentData = computed<UserMonitor[]>(() => {
         background
         layout="prev, pager, next"
         :total="tableData.length"
-        :page-size="pageSizde"
+        :page-size="pageSize"
         @current-change="handleCurrentChange"
       />
     </div>

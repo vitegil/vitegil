@@ -58,7 +58,7 @@ export const getHistogramOption = ({
       {
         label: {
           show: true,
-          position: 'top',
+          position: 'right',
           // valueAnimation: true
         },
         data: datas,

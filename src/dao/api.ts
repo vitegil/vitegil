@@ -1,3 +1,4 @@
+import type { Performance } from './type'
 import http from '@/dao/http.config'
 
 // 登录
@@ -61,7 +62,7 @@ export const errorApi = async () => {
 }
 
 // 性能
-export const performanceApi = async () => {
+export const performanceApi = async (): Promise<Performance | false> => {
   try {
     const res = await http.request({
       method: 'get',
@@ -71,16 +72,17 @@ export const performanceApi = async () => {
   }
   catch (error) {
     console.log(error)
+    return false
   }
 }
 
 // 用户监控
-export const addAppApi = async (appName: string, appUrl: string) => {
+export const addAppApi = async (appName: string, appId: string) => {
   try {
     const res = await http.request({
       method: 'get',
       url: 'addApp',
-      data: { name: appName, url: appUrl },
+      data: { name: appName, url: appId },
     })
     return res.data
   }
