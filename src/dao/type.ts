@@ -1,8 +1,9 @@
-export interface Base {
-  /** 登录api获取监控网页url */
-  userId: string
+export interface BaseResponse<T> {
+  status: boolean
+  msg: string
+  data: T
 }
-export interface Performance extends Base {
+export interface Performance {
   /** 首次可交互时间 */
   timeToInteractive: number
   /** 发出页面请求到接收到应答数据第一个字节所花费的毫秒数 */
@@ -38,4 +39,14 @@ export interface UserMonitor {
   date: string
   name: string
   address: string
+}
+
+export interface UVRes {
+  tatalUV: number
+  timeArr: number[]
+}
+
+export interface PVRes {
+  tatalUV: number
+  timeArr: number[]
 }

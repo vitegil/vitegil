@@ -1,4 +1,4 @@
-import type { Performance } from './type'
+import type { BaseResponse, PVRes, Performance, UVRes } from './type'
 import http from '@/dao/http.config'
 
 // 登录
@@ -7,11 +7,7 @@ export const loginApi = async (params: {
   password: string
 }): Promise<boolean> => {
   try {
-    const res = await http.request<{
-      data: string
-      msg: string
-      status: boolean
-    }>({
+    const res = await http.request<BaseResponse<string>>({
       method: 'post',
       url: 'admin/login',
       // `data` 是作为请求体被发送的数据
@@ -20,37 +16,36 @@ export const loginApi = async (params: {
       },
     })
     return res.data.status
-  }
-  catch (error) {
+  } catch (error) {
     console.log(error)
     return false
   }
 }
 
 // 用户行为检测-UV/PU
-export const pvApi = async () => {
+export const pvApi = async (): Promise<PVRes | false> => {
   try {
-    const res = await http.request({
+    const res = await http.request<BaseResponse<PVRes>>({
       method: 'get',
       url: 'pv/getPV',
     })
-    return res.data
-  }
-  catch (error) {
+    return res?.data?.data
+  } catch (error) {
     console.log(error)
+    return false
   }
 }
 
-export const uvApi = async () => {
+export const uvApi = async (): Promise<UVRes | false> => {
   try {
-    const res = await http.request({
+    const res = await http.request<BaseResponse<UVRes>>({
       method: 'get',
-      url: 'pv/getUV',
+      url: 'device/getUV',
     })
-    return res.data
-  }
-  catch (error) {
+    return res?.data?.data
+  } catch (error) {
     console.log(error)
+    return false
   }
 }
 
@@ -62,8 +57,7 @@ export const errorApi = async () => {
       url: 'error/gerError',
     })
     return res.data
-  }
-  catch (error) {
+  } catch (error) {
     console.log(error)
   }
 }
@@ -77,8 +71,7 @@ export const performanceApi = async (): Promise<Performance | false> => {
       // params: { appId: 'www.baidu.cn' },
     })
     return res.data
-  }
-  catch (error) {
+  } catch (error) {
     console.log(error)
     return false
   }
@@ -93,8 +86,7 @@ export const addAppApi = async (appName: string, appId: string) => {
       data: { name: appName, url: appId },
     })
     return res.data
-  }
-  catch (error) {
+  } catch (error) {
     console.log(error)
   }
 }
@@ -106,8 +98,7 @@ export const getAppApi = async () => {
       url: 'getApp',
     })
     return res.data
-  }
-  catch (error) {
+  } catch (error) {
     console.log(error)
   }
 }

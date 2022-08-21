@@ -17,6 +17,8 @@ import type { LineSeriesOption } from 'echarts/charts'
 import { LineChart } from 'echarts/charts'
 import { UniversalTransition } from 'echarts/features'
 import { CanvasRenderer } from 'echarts/renderers'
+import { ref, watch } from 'vue'
+import { timeArr } from './data'
 import colors from '@/style/color'
 
 echarts.use([
@@ -39,7 +41,7 @@ type EChartsOption = echarts.ComposeOption<
   | LineSeriesOption
 >
 // Array<number> 等价 number[]，数字类型的数组。不等[number]指长度为1的数字且为number
-export const echartModel = (
+const echartModel = (
   uvData: Array<number>,
   pvData: number[],
 ): EChartsOption => {
@@ -57,7 +59,7 @@ export const echartModel = (
       },
     },
     legend: {
-      data: ['PV', 'UV'],
+      data: ['UV', 'PV'],
     },
     toolbox: {
       feature: {
@@ -125,3 +127,8 @@ export const echartModel = (
     ],
   }
 }
+
+export const option = ref(echartModel(timeArr.uv, timeArr.pv))
+watch(timeArr, () => {
+  option.value = echartModel(timeArr.uv, timeArr.pv)
+})
