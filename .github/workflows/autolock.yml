@@ -1,0 +1,35 @@
+name: Dependabot auto-lock
+
+on: pull_request_target
+
+permissions: read-all
+
+jobs:
+  update-lockfile:
+    runs-on: ubuntu-latest
+    if: ${{ github.actor == 'dependabot[bot]' }}
+    permissions:
+      pull-requests: write
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+
+      - name: Set node version
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          cache: npm
+
+      - name: Install lockfile deps
+        run: npm install --package-lock-only
+
+      - name: Commit lockfile
+        run: |
+          git config --global user.name github-actions[bot]
+          git config --global user.email github-actions[bot]@users.noreply.github.com
+          git add package-lock.json
+          git commit -m "chore: update lockfile"
+          git push
