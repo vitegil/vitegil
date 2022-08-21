@@ -1,4 +1,4 @@
-import type { BaseResponse, PVRes, Performance, UVRes } from './type'
+import type { BaseResponse, ErrorRes, PVRes, Performance, UVRes } from './type'
 import http from '@/dao/http.config'
 
 // 登录
@@ -50,15 +50,16 @@ export const uvApi = async (): Promise<UVRes | false> => {
 }
 
 // 异常三种异常
-export const errorApi = async () => {
+export const errorApi = async (): Promise<ErrorRes | false> => {
   try {
-    const res = await http.request({
+    const res = await http.request<BaseResponse<ErrorRes>>({
       method: 'get',
-      url: 'error/gerError',
+      url: '/error/gerError',
     })
-    return res.data
+    return res?.data?.data
   } catch (error) {
     console.log(error)
+    return false
   }
 }
 

@@ -50,3 +50,14 @@ export interface PVRes {
   tatalUV: number
   timeArr: number[]
 }
+
+interface ErrorItem {
+  grade: number
+  data: number[]
+}
+export interface ErrorRes {
+  allGrade: number
+  promiseError: ErrorItem
+  jsError: ErrorItem
+  resourceError: ErrorItem
+}

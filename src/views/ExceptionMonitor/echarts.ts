@@ -109,35 +109,37 @@ const optionConfigC = {
   color: colors.pink.echarts,
 }
 
-export const optionA = ref(
-  getLineOption({
-    ...optionConfigA,
-    datas: jsError.value,
-  }),
-)
-export const optionB = ref(
-  getLineOption({
-    ...optionConfigB,
-    datas: promiseError.value,
-  }),
-)
-export const optionC = ref(
-  getLineOption({
-    ...optionConfigC,
-    datas: resourceError.value,
-  }),
-)
+export const options = [
+  ref(
+    getLineOption({
+      ...optionConfigA,
+      datas: jsError.value,
+    }),
+  ),
+  ref(
+    getLineOption({
+      ...optionConfigB,
+      datas: promiseError.value,
+    }),
+  ),
+  ref(
+    getLineOption({
+      ...optionConfigC,
+      datas: resourceError.value,
+    }),
+  ),
+]
 
 watch([jsError, promiseError, resourceError], () => {
-  optionA.value = getLineOption({
+  options[0].value = getLineOption({
     ...optionConfigA,
     datas: jsError.value,
   })
-  optionB.value = getLineOption({
+  options[1].value = getLineOption({
     ...optionConfigB,
     datas: promiseError.value,
   })
-  optionC.value = getLineOption({
+  options[2].value = getLineOption({
     ...optionConfigC,
     datas: resourceError.value,
   })

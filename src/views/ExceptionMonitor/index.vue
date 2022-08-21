@@ -1,17 +1,11 @@
 <script lang="ts" setup>
-import { ref } from 'vue'
 import {
   circleOptions,
   healthScoreOption,
-  optionA,
-  optionB,
-  optionC,
+  options,
   // optionD,
 } from './echarts'
 import ECharts from '@/components/ECharts.vue'
-import colors from '@/style/color'
-
-const options = [optionA, optionC, optionB]
 </script>
 
 <template>
