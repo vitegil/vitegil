@@ -66,12 +66,11 @@ export const errorApi = async (): Promise<ErrorRes | false> => {
 // 性能
 export const performanceApi = async (): Promise<Performance | false> => {
   try {
-    const res = await http.request({
+    const res = await http.request<BaseResponse<Performance>>({
       method: 'get',
       url: 'performance/getPerformance',
-      // params: { appId: 'www.baidu.cn' },
     })
-    return res.data
+    return res.data.data
   } catch (error) {
     console.log(error)
     return false
