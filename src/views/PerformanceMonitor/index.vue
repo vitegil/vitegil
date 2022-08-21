@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import { option_all } from './echarts'
 import { performanceData } from './data'
 import ECharts from '@/components/ECharts.vue'
+import DataLabel from '@/components/DataLabel.vue'
 import colors from '@/style/color'
 
 const performance = ref([
@@ -45,16 +46,13 @@ const performance = ref([
       <p>页面性能监控</p>
       <el-divider />
       <div class="grid grid-cols-3 gap-3 justify-items-center">
-        <div
+        <DataLabel
           v-for="(item, index) in performance"
           :key="index"
-          :class="`data-label w-m-250px ${item.color.bg}`"
-        >
-          <p>{{ item.name }}</p>
-          <p class="font-semibold text-2xl">
-            {{ item.value }}ms
-          </p>
-        </div>
+          :name="item.name"
+          :value="`${item.value}ms`"
+          :color="item.color"
+        />
       </div>
     </div>
     <ECharts :option="option_all" />

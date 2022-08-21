@@ -2,6 +2,8 @@
 import { onMounted, reactive, ref, watch } from 'vue'
 import { echartModel } from './echarts'
 import ECharts from '@/components/ECharts.vue'
+import DataLabel from '@/components/DataLabel.vue'
+import colors from '@/style/color'
 // import { pvApi, uvApi } from '@/dao/api'
 
 const pv = ref<number>(1200)
@@ -48,22 +50,8 @@ onMounted(async () => {
       <p>流量数据</p>
       <el-divider />
       <div class="flex justify-evenly">
-        <div
-          class="flex flex-col p-15px items-center basis-1/5 w-80px h-80px rounded-4xl bg-gradient-to-l from-green-500/50 to-blue-500/50"
-        >
-          <p>浏览量(PV)</p>
-          <p class="font-semibold text-2xl">
-            {{ pv }}
-          </p>
-        </div>
-        <div
-          class="flex flex-col p-15px items-center basis-1/5 w-80px h-80px rounded-4xl bg-gradient-to-l from-green-500/50 to-blue-500/50"
-        >
-          <p>访客数(UV)</p>
-          <p class="font-semibold text-2xl">
-            {{ uv }}
-          </p>
-        </div>
+        <DataLabel name="浏览量(PV)" :value="`${pv}ms`" :color="colors.green" />
+        <DataLabel name="访客数(UV)" :value="`${uv}ms`" :color="colors.green" />
       </div>
     </div>
     <ECharts :option="option" />

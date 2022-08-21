@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 // 定义响应式的、可更改的 ref 变量
 // 对象赋值给 ref，对象通过 reactive() 转为具有深层次响应式的对象
-import { computed, onMounted, reactive, ref } from 'vue'
+import { computed, reactive, ref } from 'vue'
 import { currentPage, handleCurrentChange, pageSize } from './page'
 import { addAppApi, getAppApi } from '@/dao/api'
 import type { UserMonitor } from '@/dao/type'

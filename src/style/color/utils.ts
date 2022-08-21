@@ -1,6 +1,6 @@
 import * as echarts from 'echarts/core'
 import { genWindiLgBgClass } from '../../../windi/linearGradient'
-import { Color } from './type'
+import type { Color } from './type'
 
 /**
  * RGB 颜色字符串转 [r, g, b] 数组

@@ -1,6 +1,6 @@
 import { colors as lgOriginColors } from '../../../windi/linearGradient'
 import { genLgColor } from './utils'
-import { Color } from './type'
+import type { Color } from './type'
 
 /**
  * 渐变颜色组
@@ -15,4 +15,5 @@ const colors: Record<keyof typeof lgColors, Color> = {
   ...lgColors,
 }
 
+export { Color }
 export default colors
