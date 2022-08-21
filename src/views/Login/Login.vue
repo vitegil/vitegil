@@ -2,7 +2,7 @@
 import { reactive, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { loginApi } from '@/dao/api'
-
+import { close, start } from '@/utils/nprogress'
 // const loading = ref(false)
 const isLogin = ref(false)
 
@@ -14,6 +14,7 @@ const route = useRoute()
 const router = useRouter()
 
 async function login() {
+  start()
   // 1.判空  2.状态等待loading 3.axios发送后端 4.成功则跳转到首页
   if (!formInline.account || !formInline.password)
     return
@@ -22,6 +23,7 @@ async function login() {
   // loading = false;
   // if (res) {
   // isLogin = res.status
+  close()
   router.push({ name: 'ActionMonitor' })
   // }
 }
