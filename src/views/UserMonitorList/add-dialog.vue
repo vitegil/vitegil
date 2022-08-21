@@ -27,19 +27,20 @@ const addItem = async () => {
   if (!ruleFormRef.value)
     return
   await ruleFormRef.value.validate(async (valid) => {
-    if (valid) {
-      isLoading.value = true
-      const newRes = await addAppApi(form.name, form.url)
-      isLoading.value = false
-      if (newRes) {
-        tableData.length = 0
-        tableData.push(...newRes)
-        dialogFormVisible.value = false
-        ElNotification({
-          type: 'success',
-          title: '新建成功',
-        })
-      }
+    if (!valid) {
+      return
+    }
+    isLoading.value = true
+    const newRes = await addAppApi(form.name, form.url)
+    isLoading.value = false
+    if (newRes) {
+      tableData.length = 0
+      tableData.push(...newRes)
+      dialogFormVisible.value = false
+      ElNotification({
+        type: 'success',
+        title: '新建成功',
+      })
     }
   })
 }
@@ -62,6 +63,7 @@ const rules: FormRules = {
   <!-- 新增dialog -->
   <el-dialog v-model="dialogFormVisible" title="新增项目" width="40%">
     <el-form
+      ref="ruleFormRef"
       v-loading="isLoading"
       :model="form"
       :rules="rules"
