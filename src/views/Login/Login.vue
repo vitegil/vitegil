@@ -6,7 +6,7 @@ import { loginApi } from '@/dao/api'
 // const loading = ref(false)
 const isWrong = ref()
 const formInline = reactive({
-  account: 'admine',
+  account: 'admin',
   password: '123456',
 })
 const route = useRoute()
