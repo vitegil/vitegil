@@ -13,6 +13,7 @@ export const loginApi = async (account: string, pwd: string) => {
         pwd,
       },
     })
+
     return res.status
   }
   catch (error) {
@@ -65,8 +66,9 @@ export const errorApi = async () => {
 export const performanceApi = async (): Promise<Performance | false> => {
   try {
     const res = await http.request({
-      method: 'get',
-      url: 'performance/getPerformance',
+      method: 'post',
+      url: 'performance/savePerformance',
+      // params: { appId: 'www.baidu.cn' },
     })
     return res.data
   }

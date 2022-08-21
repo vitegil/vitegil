@@ -3,6 +3,7 @@
   "scripts": {
     "build": "vite build",
     "dev": "vite",
+    "dev-mock": "vite --mode mock",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "preview": "vite preview",
@@ -13,12 +14,12 @@
     "axios": "^0.27.2",
     "echarts": "^5.3.3",
     "element-plus": "^2.2.13",
-    "nprogress": "^0.2.0",
     "vue": "^3.2.37",
     "vue-router": "^4.1.3"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.26.1",
+    "@types/nprogress": "^0.2.0",
     "@vitejs/plugin-vue": "^3.0.3",
     "eslint": "^8.22.0",
     "prettier": "2.7.1",
