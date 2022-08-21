@@ -8,6 +8,7 @@
   // Extension configs
   "cSpell.words": [
     "antfu",
+    "axios",
     "echarts",
     "pnpm",
     "TTFB",

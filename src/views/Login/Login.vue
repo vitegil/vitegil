@@ -7,7 +7,7 @@ import { close, start } from '@/utils/nprogress'
 const isLogin = ref(false)
 
 const formInline = reactive({
-  account: 'admine',
+  account: 'admin',
   password: '123456',
 })
 const route = useRoute()
