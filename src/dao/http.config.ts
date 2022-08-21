@@ -1,8 +1,8 @@
 /**
  * @file 创建axios实例/网络请求的工具,拦截器、公共地址等基础配置
  */
-
 import axios from 'axios'
+import { storageKey } from '@/constants'
 import { close, start } from '@/utils/nprogress'
 
 const http = axios.create({
@@ -17,15 +17,17 @@ http.interceptors.request.use(
     // 开始加载-进度条开始
     start()
 
-    const appId = localStorage.getItem('appIdSave')
+    const appId = localStorage.getItem(storageKey.appId)
     if (!appId) {
       console.log('无appId')
       return config
     }
+
     config.params = {
       appId,
       ...config.params,
     }
+
     return config
   },
   (err) => {
@@ -38,11 +40,11 @@ http.interceptors.response.use(
   (response) => {
     // 结束加载-进度条结束
     close()
-
-    if (response.data.includes('appId')) {
-      localStorage.setItem('appId', response.data.appId)
-      console.log('存入LocalStorage:', localStorage)
-    }
+    // appId 暂时固定
+    // if (response?.data.includes('appId')) {
+    //   localStorage.setItem('appId', response.data.appId)
+    //   console.log('存入LocalStorage:', localStorage)
+    // }
     return response
   },
   (err) => {
@@ -51,14 +53,3 @@ http.interceptors.response.use(
 )
 
 export default http
-
-// import axios from 'axios'
-// const instance = axios.create({})
-// 拦截器
-// instance.interceptors.request.use(config => {
-//   return config
-// })
-// instance.interceptors.response.use(response => {
-//   return response
-// })
-// export default instance

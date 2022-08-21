@@ -2,22 +2,28 @@ import type { Performance } from './type'
 import http from '@/dao/http.config'
 
 // 登录
-export const loginApi = async (account: string, pwd: string) => {
+export const loginApi = async (params: {
+  account: string
+  password: string
+}): Promise<boolean> => {
   try {
-    const res = await http.request({
+    const res = await http.request<{
+      data: string
+      msg: string
+      status: boolean
+    }>({
       method: 'post',
-      url: 'admin/login ',
+      url: 'admin/login',
       // `data` 是作为请求体被发送的数据
       data: {
-        account,
-        pwd,
+        data: params,
       },
     })
-
-    return res.status
+    return res.data.status
   }
   catch (error) {
     console.log(error)
+    return false
   }
 }
 

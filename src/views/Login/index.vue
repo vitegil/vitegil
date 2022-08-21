@@ -1,15 +1,15 @@
 <script setup lang="ts">
 import { reactive, ref } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
+import { useRouter } from 'vue-router'
 import { loginApi } from '@/dao/api'
+import { storageKey } from '@/constants'
 
-// const loading = ref(false)
-const isWrong = ref()
+const isLoading = ref(false)
+const isWrong = ref(false)
 const formInline = reactive({
-  account: 'admin',
-  password: '123456',
+  account: 'vitegil',
+  password: 'vitegil',
 })
-const route = useRoute()
 const router = useRouter()
 
 async function login() {
@@ -17,16 +17,17 @@ async function login() {
   // 1.判空  2.状态等待loading 3.axios发送后端 4.成功则跳转到首页
   if (!formInline.account || !formInline.password) {
     isWrong.value = true
-    return false
+    return
   }
-  // loading = true
-  // let res = await login_api(formInline.account,formInline.password);
-  // loading = false
-  // if (!res)
-  isWrong.value = true
-  // return false
-  // }
-  router.push({ name: 'ActionMonitor' })
+  isLoading.value = true
+  const isSuccessLogin = await loginApi(formInline)
+  isLoading.value = false
+  if (isSuccessLogin) {
+    localStorage.setItem(storageKey.appId, 'www.baidu.com')
+    router.push({ name: 'ActionMonitor' })
+  } else {
+    isWrong.value = true
+  }
 }
 </script>
 
@@ -52,16 +53,17 @@ async function login() {
     </div>
     <!-- 右侧登录 -->
     <div class="w-[50%] h-full flex flex-col justify-center items-center">
-      <div class="w-400px">
+      <div class="w-400px relative">
         <div class="text-center text-2xl font-bold mb-20px">
           登录
         </div>
-        <el-form status-icon label-position="top">
+        <el-form v-loading="isLoading" status-icon label-position="top">
           <el-form-item label="账号">
             <el-input
               v-model="formInline.account"
               size="large"
               type="account"
+              @input="isWrong = false"
             />
           </el-form-item>
           <el-form-item label="密码">
@@ -69,6 +71,7 @@ async function login() {
               v-model="formInline.password"
               size="large"
               type="password"
+              @input="isWrong = false"
             />
           </el-form-item>
 
@@ -89,11 +92,12 @@ async function login() {
           </el-form-item> -->
         </el-form>
         <el-alert
-          v-if="isWrong"
+          v-show="isWrong"
           title="请填写正确的账号和密码"
           type="error"
-          description="wrong account or password"
+          description="Wrong account or password"
           show-icon
+          class="absolute w-full"
         />
       </div>
     </div>

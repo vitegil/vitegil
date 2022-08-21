@@ -8,7 +8,7 @@ export default defineConfig((env) => {
   const mode = env.mode
   // const {mode} = env
   const isMock = mode === 'mock'
-  const baseUrl = isMock ? 'http://localhost:10002' : ''
+  const baseUrl = isMock ? 'http://localhost:10002' : 'http://82.157.232.71:10002'
   console.log(`mode:${mode},baseUrl:${baseUrl}`)
 
   // 方法1.设置不通的axios baseUrl

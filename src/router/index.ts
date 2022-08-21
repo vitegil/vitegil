@@ -28,7 +28,7 @@ export const fullScreenRoutes: RouteRecordRaw[] = [
   {
     name: 'Login',
     path: '/',
-    component: () => import('@/views/Login/Login.vue'),
+    component: () => import('@/views/Login/index.vue'),
   },
   {
     name: 'Demo',
