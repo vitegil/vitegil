@@ -10,6 +10,7 @@ specifiers:
   element-plus: ^2.2.14
   eslint: ^8.22.0
   nprogress: ^0.2.0
+  pnpm: ^7.9.3
   prettier: 2.7.1
   typescript: ^4.7.4
   vite: ^3.0.9
@@ -34,6 +35,7 @@ devDependencies:
   '@types/nprogress': 0.2.0
   '@vitejs/plugin-vue': 3.0.3_vite@3.0.9+vue@3.2.37
   eslint: 8.22.0
+  pnpm: 7.9.3
   prettier: 2.7.1
   typescript: 4.7.4
   vite: 3.0.9
@@ -5069,6 +5071,12 @@ packages:
   /pluralize/8.0.0:
     resolution: {integrity: sha512-Nc3IT5yHzflTfbjgqWcCPpo7DaKy4FnpB0l/zCAW0Tc7jxAiuqSxHasntB3D7887LSrA93kDJ9IXovxJYxyLCA==}
     engines: {node: '>=4'}
+    dev: true
+
+  /pnpm/7.9.3:
+    resolution: {integrity: sha512-0hpAD1vtILw0i9gTN4ffagnScWMW9/avfZIKllBUd++fAvCss+hVgPPDd0HS9XcOT675gid4H9esGkbLdaFy+w==}
+    engines: {node: '>=14.6'}
+    hasBin: true
     dev: true
 
   /portfinder/1.0.32:
