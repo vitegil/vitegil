@@ -87,10 +87,10 @@ watch([jsGrade, promiseGrade, resourceGrade], () => {
 })
 
 // 异常趋势图
-const labelShown = Array(9)
+const labelShown = Array(24)
   .fill(0)
   .map((value, index) => {
-    return `${3 * index}:00`
+    return `${index}:00`
   })
 
 const optionConfigA = {

@@ -61,7 +61,7 @@ export const errorApi = async (): Promise<ErrorRes | false> => {
   try {
     const res = await http.request<BaseResponse<ErrorRes>>({
       method: 'get',
-      url: '/error/gerError',
+      url: '/error/getError',
     })
     return res?.data?.data
   } catch (error) {

@@ -1,7 +1,7 @@
 import { reactive, toRefs } from 'vue'
 // 实际取出-函数
-// import { errorApi } from '@/dao/api'
-import { errorApi } from './mock'
+import { errorApi } from '@/dao/api'
+// import { errorApi } from './mock'
 
 // 定义展示数据
 // number[]等价Array<number>代表不限长度的数字数组。不等[number,,,]限定长度

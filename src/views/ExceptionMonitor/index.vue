@@ -34,7 +34,7 @@ import ECharts from '@/components/ECharts.vue'
       1）当该行剩余空间 >=WIDTH 时，该行添加一项
       2）当该行剩余空间 <WIDTH，不能添加新项，则已有项平均分配剩余宽度
     -->
-    <div class="grid grid-cols-[repeat(auto-fill,minmax(480px,1fr))]">
+    <div class="grid grid-cols-[repeat(auto-fill,minmax(800px,1fr))]">
       <div
         v-for="(option, index) in options"
         :key="index"
