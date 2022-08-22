@@ -23,8 +23,8 @@ export const loginApi = async (params: {
       },
     })
     return res.data.status
-  } catch (error) {
-    console.log(error)
+  }
+  catch (error) {
     return false
   }
 }
@@ -37,8 +37,8 @@ export const pvApi = async (): Promise<PVRes | false> => {
       url: 'pv/getPV',
     })
     return res?.data?.data
-  } catch (error) {
-    console.log(error)
+  }
+  catch (error) {
     return false
   }
 }
@@ -50,8 +50,8 @@ export const uvApi = async (): Promise<UVRes | false> => {
       url: 'device/getUV',
     })
     return res?.data?.data
-  } catch (error) {
-    console.log(error)
+  }
+  catch (error) {
     return false
   }
 }
@@ -64,8 +64,8 @@ export const errorApi = async (): Promise<ErrorRes | false> => {
       url: '/error/getError',
     })
     return res?.data?.data
-  } catch (error) {
-    console.log(error)
+  }
+  catch (error) {
     return false
   }
 }
@@ -78,8 +78,8 @@ export const performanceApi = async (): Promise<Performance | false> => {
       url: 'performance/getPerformance',
     })
     return res.data.data
-  } catch (error) {
-    console.log(error)
+  }
+  catch (error) {
     return false
   }
 }
@@ -96,8 +96,8 @@ export const addAppApi = async (
       data: { data: { name: appName, appId } },
     })
     return res?.data?.data
-  } catch (error) {
-    console.log(error)
+  }
+  catch (error) {
     return false
   }
 }
@@ -109,8 +109,8 @@ export const getAppApi = async (): Promise<UserMonitorRes | false> => {
       url: 'app/getApp',
     })
     return res?.data?.data
-  } catch (error) {
-    console.log(error)
+  }
+  catch (error) {
     return false
   }
 }

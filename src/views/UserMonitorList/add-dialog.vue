@@ -27,9 +27,9 @@ const addItem = async () => {
   if (!ruleFormRef.value)
     return
   await ruleFormRef.value.validate(async (valid) => {
-    if (!valid) {
+    if (!valid)
       return
-    }
+
     isLoading.value = true
     const newRes = await addAppApi(form.name, form.url)
     isLoading.value = false

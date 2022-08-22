@@ -16,7 +16,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node_version: [14, 16]
+        node_version: [14, 16, 18]
         include:
           # Active LTS + other OS
           - os: macos-latest
@@ -30,14 +30,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2.2.2
+
       - name: Set node version to ${{ matrix.node_version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node_version }}
-          cache: npm
+          cache: pnpm
 
       - name: Install deps
-        run:  npm install
+        run: pnpm install
 
   lint:
     timeout-minutes: 10
@@ -45,33 +48,35 @@ jobs:
     name: 'Lint: node-16, ubuntu-latest'
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
       - uses: actions/setup-node@v3
         with:
           node-version: 16.x
-          cache: npm
+          cache: pnpm
 
       - name: Install deps
-        run:  npm install
+        run: pnpm install
 
       - name: Build
-        run:  npm run build
+        run: pnpm run build
 
       - name: Lint
-        run:  npm run lint
+        run: pnpm run lint
 
-  # typecheck:
-  #   timeout-minutes: 10
-  #   runs-on: ubuntu-latest
-  #   name: 'Typecheck: node-16, ubuntu-latest'
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #     - uses: actions/setup-node@v3
-  #       with:
-  #         node-version: 16.x
-  #         cache: npm
+  typecheck:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    name: 'Typecheck: node-16, ubuntu-latest'
+    steps:
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          cache: pnpm
 
-  #     - name: Install
-  #       run:  npm install
+      - name: Install
+        run: pnpm install
 
-  #     - name: Typecheck
-  #       run:  npm run typecheck
+      - name: Typecheck
+        run: pnpm run typecheck
