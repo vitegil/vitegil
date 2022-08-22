@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "https://vitegil.netlify.app/*"
+  to = "http://www.vitegil.space/:splat"
+  status = 200
+  force = true
