@@ -1,0 +1,17 @@
+[[redirects]]
+  from = "https://example.netlify.com/*"
+  to = "https://www.example.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://example.netlify.com/*"
+  to = "http://www.example.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.example.com/*"
+  to = "https://www.example.com/:splat"
+  status = 301
+  force = true
