@@ -5,11 +5,6 @@
 </p>
 <br/>
 
-<p align="center">
-  <a href="https://vitegil.space/"><img src="https://api.netlify.com/api/v1/badges/e313f515-096a-42a7-992d-1a73cae0829e/deploy-status" alt="Netlify Status"></a>
-</p>
-<br/>
-
 # Vitegil 🔭
 
 ### 安装
