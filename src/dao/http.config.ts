@@ -19,10 +19,8 @@ http.interceptors.request.use(
     start()
 
     const appId = localStorage.getItem(storageKey.appId)
-    if (!appId) {
-      console.log('无appId')
+    if (!appId)
       return config
-    }
 
     config.params = {
       appId,
@@ -50,7 +48,6 @@ http.interceptors.response.use(
     // appId 暂时固定
     // if (response?.data.includes('appId')) {
     //   localStorage.setItem('appId', response.data.appId)
-    //   console.log('存入LocalStorage:', localStorage)
     // }
     return response
   },

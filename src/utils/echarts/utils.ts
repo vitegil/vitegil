@@ -5,8 +5,8 @@
 export const getColorGroup
   = (colors: LinearGradient[]) =>
     (params: { dataIndex: number }) => {
-      while (params.dataIndex >= colors.length) {
+      while (params.dataIndex >= colors.length)
         params.dataIndex -= colors.length
-      }
+
       return colors[params.dataIndex]
     }

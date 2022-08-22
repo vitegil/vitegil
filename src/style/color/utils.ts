@@ -48,15 +48,15 @@ const hex2rgb = (hex: string) => {
  * @param rgb rgb(255,255,255)
  * @returns #ffffff
  */
-const rgb2hex = (rgb: string): string => {
-  const [r, g, b] = rgb2rgbArray(rgb)
-  return `#${r}${g}${b}`
-}
+// const rgb2hex = (rgb: string): string => {
+//   const [r, g, b] = rgb2rgbArray(rgb)
+//   return `#${r}${g}${b}`
+// }
 
 const hexOrRgb2rgb = (color: string) => {
-  if (color.startsWith('#')) {
+  if (color.startsWith('#'))
     return hex2rgb(color)
-  }
+
   return color
 }
 

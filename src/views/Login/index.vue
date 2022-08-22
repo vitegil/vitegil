@@ -25,7 +25,8 @@ async function login() {
   if (isSuccessLogin) {
     localStorage.setItem(storageKey.appId, 'www.baidu.com')
     router.push({ name: 'ActionMonitor' })
-  } else {
+  }
+  else {
     isWrong.value = true
   }
 }
