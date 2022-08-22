@@ -9,7 +9,7 @@ import { close, start } from '@/utils/nprogress'
 const http = axios.create({
   // 需要改
   baseURL: '/api',
-  timeout: 1000,
+  timeout: 10000,
 })
 
 // 拦截器，login收到appId统一添加params
