@@ -59,19 +59,19 @@ jobs:
       - name: Lint
         run:  npm run lint
 
-  typecheck:
-    timeout-minutes: 10
-    runs-on: ubuntu-latest
-    name: 'Typecheck: node-16, ubuntu-latest'
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16.x
-          cache: npm
+  # typecheck:
+  #   timeout-minutes: 10
+  #   runs-on: ubuntu-latest
+  #   name: 'Typecheck: node-16, ubuntu-latest'
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - uses: actions/setup-node@v3
+  #       with:
+  #         node-version: 16.x
+  #         cache: npm
 
-      - name: Install
-        run:  npm install
+  #     - name: Install
+  #       run:  npm install
 
-      - name: Typecheck
-        run:  npm run typecheck
+  #     - name: Typecheck
+  #       run:  npm run typecheck
