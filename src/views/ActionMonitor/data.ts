@@ -14,7 +14,7 @@ export const timeArr = reactive<{
 ;(async () => {
   const [pvRes, uvRes] = await Promise.all([pvApi(), uvApi()])
   if (pvRes) {
-    tatalPV.value = pvRes.tatalUV
+    tatalPV.value = pvRes.tatalPV
     timeArr.pv = pvRes.timeArr
   }
   if (uvRes) {

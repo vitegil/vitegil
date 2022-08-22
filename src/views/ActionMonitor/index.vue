@@ -14,12 +14,12 @@ import colors from '@/style/color'
       <div class="flex justify-evenly">
         <DataLabel
           name="浏览量(PV)"
-          :value="`${tatalPV}ms`"
+          :value="`${tatalPV}`"
           :color="colors.green"
         />
         <DataLabel
           name="访客数(UV)"
-          :value="`${tatalUV}ms`"
+          :value="`${tatalUV}`"
           :color="colors.green"
         />
       </div>

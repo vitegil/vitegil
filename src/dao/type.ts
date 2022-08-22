@@ -43,7 +43,7 @@ export interface UVRes {
 }
 
 export interface PVRes {
-  tatalUV: number
+  tatalPV: number
   timeArr: number[]
 }
 
