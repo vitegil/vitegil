@@ -9,25 +9,25 @@ import type {
 import http from '@/dao/http.config'
 
 // 登录
-export const loginApi = async (params: {
-  account: string
-  password: string
-}): Promise<boolean> => {
-  try {
-    const res = await http.request<BaseResponse<string>>({
-      method: 'post',
-      url: 'admin/login',
-      // `data` 是作为请求体被发送的数据
-      data: {
-        data: params,
-      },
-    })
-    return res.data.status
-  }
-  catch (error) {
-    return false
-  }
-}
+// export const loginApi = async (params: {
+//   account: string
+//   password: string
+// }): Promise<boolean> => {
+//   try {
+//     const res = await http.request<BaseResponse<string>>({
+//       method: 'post',
+//       url: 'admin/login',
+//       // `data` 是作为请求体被发送的数据
+//       data: {
+//         data: params,
+//       },
+//     })
+//     return res.data.status
+//   }
+//   catch (error) {
+//     return false
+//   }
+// }
 
 // 用户行为检测-UV/PU
 export const pvApi = async (): Promise<PVRes | false> => {

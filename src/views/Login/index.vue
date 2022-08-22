@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { reactive, ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { loginApi } from '@/dao/api'
+// import { loginApi } from '@/dao/api'
 import { storageKey } from '@/constants'
 
-const isLoading = ref(false)
 const isWrong = ref(false)
 const formInline = reactive({
   account: 'vitegil',
@@ -14,14 +13,11 @@ const router = useRouter()
 
 async function login() {
   isWrong.value = false
-  // 1.判空  2.状态等待loading 3.axios发送后端 4.成功则跳转到首页
   if (!formInline.account || !formInline.password) {
     isWrong.value = true
     return
   }
-  // isLoading.value = true
-  // const isSuccessLogin = await loginApi(formInline)
-  // isLoading.value = false
+  //  const isSuccessLogin = await loginApi(formInline)
   // if (isSuccessLogin) {
   localStorage.setItem(storageKey.appId, 'www.baidu.com')
   router.push({ name: 'ActionMonitor' })
