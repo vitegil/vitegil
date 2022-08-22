@@ -16,7 +16,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node_version: [14, 16, 18]
+        node_version: [14, 16]
         include:
           # Active LTS + other OS
           - os: macos-latest
@@ -30,17 +30,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2.2.2
-
       - name: Set node version to ${{ matrix.node_version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node_version }}
-          cache: pnpm
+          cache: npm
 
       - name: Install deps
-        run: pnpm install
+        run:  npm install
 
   lint:
     timeout-minutes: 10
@@ -48,20 +45,19 @@ jobs:
     name: 'Lint: node-16, ubuntu-latest'
     steps:
       - uses: actions/checkout@v3
-      - uses: pnpm/action-setup@v2
       - uses: actions/setup-node@v3
         with:
           node-version: 16.x
-          cache: pnpm
+          cache: npm
 
       - name: Install deps
-        run: pnpm install
+        run:  npm install
 
       - name: Build
-        run: pnpm run build
+        run:  npm run build
 
       - name: Lint
-        run: pnpm run lint
+        run:  npm run lint
 
   typecheck:
     timeout-minutes: 10
@@ -69,14 +65,13 @@ jobs:
     name: 'Typecheck: node-16, ubuntu-latest'
     steps:
       - uses: actions/checkout@v3
-      - uses: pnpm/action-setup@v2
       - uses: actions/setup-node@v3
         with:
           node-version: 16.x
-          cache: pnpm
+          cache: npm
 
       - name: Install
-        run: pnpm install
+        run:  npm install
 
       - name: Typecheck
-        run: pnpm run typecheck
+        run:  npm run typecheck
