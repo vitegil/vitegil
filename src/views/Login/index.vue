@@ -32,6 +32,8 @@ async function login() {
 </script>
 
 <template>
+  {{ isSuccessLogin }}
+  {{ isWrong }}
   <div class="flex h-full w-full">
     <!-- 左侧图 -->
     <div class="flex-grow bg-gray-700 text-white relative">
