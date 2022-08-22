@@ -19,16 +19,16 @@ async function login() {
     isWrong.value = true
     return
   }
-  isLoading.value = true
-  const isSuccessLogin = await loginApi(formInline)
-  isLoading.value = false
-  if (isSuccessLogin) {
-    localStorage.setItem(storageKey.appId, 'www.baidu.com')
-    router.push({ name: 'ActionMonitor' })
-  }
-  else {
-    isWrong.value = true
-  }
+  // isLoading.value = true
+  // const isSuccessLogin = await loginApi(formInline)
+  // isLoading.value = false
+  // if (isSuccessLogin) {
+  localStorage.setItem(storageKey.appId, 'www.baidu.com')
+  router.push({ name: 'ActionMonitor' })
+  // }
+  // else {
+  //   isWrong.value = true
+  // }
 }
 </script>
 
