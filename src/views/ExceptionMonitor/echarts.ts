@@ -38,12 +38,12 @@ const staticConfigA = {
   color: colors.pink.echarts,
 }
 const staticConfigB = {
-  subTitle: '静态资源异常',
-  color: colors.purple.echarts,
+  subTitle: 'Promise错误',
+  color: colors.yellow.echarts,
 }
 const staticConfigC = {
-  subTitle: '接口异常',
-  color: colors.yellow.echarts,
+  subTitle: '静态资源异常',
+  color: colors.purple.echarts,
 }
 export const circleOptions = [
   ref(
@@ -55,15 +55,15 @@ export const circleOptions = [
   ),
   ref(
     getCircleProgressOption({
-      title: resourceGrade.value.toString(),
-      data: resourceGrade.value,
+      title: promiseGrade.value.toString(),
+      data: promiseGrade.value,
       ...staticConfigB,
     }),
   ),
   ref(
     getCircleProgressOption({
-      title: promiseGrade.value.toString(),
-      data: promiseGrade.value,
+      title: resourceGrade.value.toString(),
+      data: resourceGrade.value,
       ...staticConfigC,
     }),
   ),
@@ -75,13 +75,13 @@ watch([jsGrade, promiseGrade, resourceGrade], () => {
     ...staticConfigA,
   })
   circleOptions[1].value = getCircleProgressOption({
-    title: resourceGrade.value.toString(),
-    data: resourceGrade.value,
+    title: promiseGrade.value.toString(),
+    data: promiseGrade.value,
     ...staticConfigB,
   })
   circleOptions[2].value = getCircleProgressOption({
-    title: promiseGrade.value.toString(),
-    data: promiseGrade.value,
+    title: resourceGrade.value.toString(),
+    data: resourceGrade.value,
     ...staticConfigC,
   })
 })
@@ -104,7 +104,7 @@ const optionConfigB = {
   color: colors.yellow.echarts,
 }
 const optionConfigC = {
-  title: '静态资源错误趋势（resource-error）',
+  title: '静态资源异常趋势（resource-error）',
   labels: labelShown,
   color: colors.pink.echarts,
 }
