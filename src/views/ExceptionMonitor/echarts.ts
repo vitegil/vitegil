@@ -99,12 +99,12 @@ const optionConfigA = {
   color: colors.green.echarts,
 }
 const optionConfigB = {
-  title: '静态资源错误趋势（resource-error）',
+  title: 'Promise错误趋势（promise-error）',
   labels: labelShown,
   color: colors.yellow.echarts,
 }
 const optionConfigC = {
-  title: 'Promise错误趋势（promise-error）',
+  title: '静态资源错误趋势（resource-error）',
   labels: labelShown,
   color: colors.pink.echarts,
 }
