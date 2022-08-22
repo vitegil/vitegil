@@ -42,6 +42,7 @@ export const getCircleProgressOption = ({
         fontSize: 30,
       },
       subtext: subTitle,
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-expect-error
       x: 'center',
       y,
@@ -53,6 +54,7 @@ export const getCircleProgressOption = ({
       type: 'pie',
       radius: [`${10 - width}0%`, '100%'], // 环的宽度
       center: ['50%', '50%'],
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-expect-error
       hoverAnimation: false, // 去除鼠标hover动画
       label: {

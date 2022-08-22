@@ -16,7 +16,7 @@ export const genWindiLgBgClass = (
 }
 
 export const safelist = Object.values(colors).map(
-  value => {
+  (value) => {
     return genWindiLgBgClass(value[0], value[1])
   },
 )

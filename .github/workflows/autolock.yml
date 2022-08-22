@@ -12,24 +12,26 @@ jobs:
       pull-requests: write
       contents: write
     steps:
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2.2.2
+        with:
+          version: ^7
+
       - name: Checkout
         uses: actions/checkout@v3
         with:
           ref: ${{ github.event.pull_request.head.ref }}
 
-      - name: Set node version
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16.x
-          cache: npm
-
       - name: Install lockfile deps
-        run: npm install --package-lock-only
+        run: pnpm i --lockfile-only
 
       - name: Commit lockfile
         run: |
           git config --global user.name github-actions[bot]
           git config --global user.email github-actions[bot]@users.noreply.github.com
-          git add package-lock.json
-          git commit -m "chore: update lockfile"
+          git add pnpm-lock.yaml
+          git commit -m "Update pnpm-lock.yaml"
           git push
+
+# https://github.com/dependabot/dependabot-core/issues/1736
+# https://gist.github.com/Purpzie/8ed86ae38c73f440881bbee0523a324b
